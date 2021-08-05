@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import { Switch, Route } from 'react-router';
+import Nav from './components/Nav'
+import Particle from './components/Particle';
+import Index from './pages/Index'
+import Intro from './pages/Intro'
+import Skill from './pages/Skill.jsx'
+import Portfolio from './pages/Portfolio'
+import Contact from './pages/Contact'
+
 
 function App() {
+
+  const [isNav, setIstNav] = useState(false);
+  setTimeout(()=> { setIstNav(true); }, 1800);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="juni">
+      <Particle/>
+      {
+        isNav ? <Nav/> : <></>
+      }
+      <Switch>
+        <Route exact path="/" component={Index}/>
+        <Route exact path="/intro" component={Intro}/>
+        <Route exact path="/skill" component={Skill}/>
+        <Route exact path="/portfolio" component={Portfolio}/>
+        <Route exact path="/contact" component={Contact}/>
+      </Switch>
     </div>
   );
 }

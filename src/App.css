@@ -1,38 +1,136 @@
-.App {
+@charset "utf8";
+
+*{
+  box-sizing: border-box;
+  margin: 0 auto;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+a{
+  text-decoration: none;
+  color: #000;
+}
+
+.juni{
+  position: relative;
+}
+
+/*---------- Mount Effect ---------- */
+
+
+.navMount{ animation: 0.8s ease-in-out navMountEffect; }
+@keyframes navMountEffect {
+    0%{
+      transform: translateY(-80px);
+      opacity: 0;
+    }
+    100%{
+      transform: translateY(0px);
+      opacity: 1;
+    }
+}
+
+.bgMount{ animation: 1.7s ease-in-out bgMountEffect; }
+@keyframes bgMountEffect {
+    0%{
+      transform: scale(2);
+    }
+    100%{
+        transform: scale(1.0);
+    }
+}
+
+.mount1{ animation: 0.7s ease-in-out mountEffect1; }
+@keyframes mountEffect1 {
+    0%{
+      opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+/* ---------- Nav---------- */
+
+.nav{ width: 100%; }
+
+.nav>ul{
+  padding: 0;
+  list-style: none;
+  display: block;
+  width: 90%;
+  height: 100px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav>ul>li{
+  display: inline-block;
+  line-height: 100px;
+  margin: 0 10px; 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav>ul>li>a{
+  padding: 10px 30px;
+  color: #383838;
+  font-size: 20px;
+  transition: 0.25s ease-in-out;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.nav>ul>li>a:hover{
+  color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+.active{
+  color: #fff !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* ---------- Bg---------- */
+
+.bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -999;
+  background-color: #000;
+}
+
+
+/* ---------- home ---------- */
+
+.homeWrap{
+  position: relative;
+  top: 0; left: 0;
+  width: 100vw;
+  height: calc(100vh - 100px);
+}
+
+.Typewriter{
+  position: absolute;
+  top: 42%; left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+.Typewriter>span{
+  font-size: 50px;
+}
+
+/* ---------- intro ---------- */
+
+.introWrap{
+  width: 85%;
+  background: #000;
+  height: calc(100vh - 100px);
+  overflow: scroll;
+}
+
+.introWrap>p{
+  width: 100px;
+  height: 2000px;
+  border: 1px solid #000;
 }
