@@ -1,36 +1,36 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Typewriter from 'typewriter-effect';
 import { connect } from 'react-redux';
-import { setIsVisivle } from '../redux/index'
+import { setIsVisible } from '../redux/index'
 
-const Index = ({ isVisible, setIsVisivle}) => {
+const Index = ({ isVisible, isMount, setIsVisible}) => {
+
+    const [isAni, setIsAni] = useState('');
 
     useEffect(()=>{
-        if(!isVisible){ //isVisible = true 이면 첫 로딩이 아님
-            
-            setTimeout(()=>{ 
-                setIsVisivle(true); 
-            }, 2000); 
-        }else{
-            setIsVisivle(true);
+        if(isMount.substr(0,7) === 'unmount'){
+            setIsAni("fadeOut");
         }
-    }, [])
+    },[isMount])
+
 
     return(
         <>
-            <section className="homeWrap">
+            <section className={`homeWrap`}>
                 {
                     isVisible ? 
-                    <Typewriter
-                        options={{
-                            strings: [`I'm Web Developer`, `I'm Front-End Developer`],
-                            autoStart: true,
-                            loop: true,
-                            delay : 70,
-                            deleteSpeed : 35,
-                            pauseFor : 3000
-                        }}
-                    />
+                    <div className={`typewriter-wrap ${isAni}`}>
+                        <Typewriter
+                            options={{
+                                strings: [`I'm Front-End Developer`, `I'm Web Developer`],
+                                autoStart: true,
+                                loop: true,
+                                delay : 70,
+                                deleteSpeed : 35,
+                                pauseFor : 7000
+                            }}
+                        />
+                    </div>
                     :
                     <></>
                 }
@@ -39,10 +39,11 @@ const Index = ({ isVisible, setIsVisivle}) => {
     )
 }
 
-const mapStateToProps = ({index}) => ({
-    isVisible : index.isVisible
+const mapStateToProps = ({menu}) => ({
+    isVisible : menu.isVisible,
+    isMount : menu.isMount
 })
 
-const mapDispatchToProps = ({ setIsVisivle });
+const mapDispatchToProps = ({ setIsVisible });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Index);

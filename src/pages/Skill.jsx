@@ -1,12 +1,40 @@
+import React, { useEffect ,useState } from 'react'
+import { connect } from 'react-redux';
+import { setIsVisible } from '../redux/index'
 
-import React from 'react'
+const Skill = ({isVisible, isMount, setIsVisible}) => {
 
-const Skill = () => {
+    const [showSkill, setShowSkill] = useState(false);
+
+    useEffect(()=>{
+        if(!isVisible){
+            setTimeout(()=>{ setShowSkill(true); }, 2000);
+        }else{
+            setShowSkill(true);
+        }
+    },[isVisible])
+
     return(
         <>
-            스킬
+            {
+                showSkill ?
+                <main className={`skillWrap ${isMount}`}>
+                    스킬
+                </main>
+                :
+                <></>
+            }
+            
         </>
     )
 }
 
-export default Skill;
+
+const mapStateToProps = ({menu}) => ({
+    isVisible : menu.isVisible,
+    isMount : menu.isMount
+});
+
+const mapDispatchToProps = ({ setIsVisible });
+
+export default connect(mapStateToProps, mapDispatchToProps)(Skill);

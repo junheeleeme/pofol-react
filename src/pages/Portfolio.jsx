@@ -1,12 +1,40 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux';
+import { setIsVisible } from '../redux/index'
 
+const Portfolio = ({isVisible, isMount, setIsVisible}) => {
 
-const Portfolio = () => {
+    const [showPofol, setShowPofol] = useState(false);
+
+    useEffect(()=>{
+        if(!isVisible){
+            setTimeout(()=>{ setShowPofol(true); }, 2000);
+        }else{
+            setShowPofol(true);
+        }
+    },[isVisible])
+
     return(
         <>
-            포폴
+            {
+                showPofol ?
+                <main className={`pofolWrap ${isMount}`}>
+                    포폴
+                </main>
+                :
+                <></>
+            }
+            
         </>
     )
 }
 
-export default Portfolio;
+
+const mapStateToProps = ({menu}) => ({
+    isVisible : menu.isVisible,
+    isMount : menu.isMount
+})
+
+const mapDispatchToProps = ({ setIsVisible });
+
+export default connect(mapStateToProps, mapDispatchToProps)(Portfolio);

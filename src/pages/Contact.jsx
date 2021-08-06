@@ -1,12 +1,43 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux';
+import { setIsVisible } from '../redux/index'
+
+const Contact = ({isVisible, isMount, setIsVisible}) => {
 
 
-const Contact = () => {
+    const [showContact, setShowContact] = useState(false);
+
+    useEffect(()=>{
+        if(!isVisible){
+            setTimeout(()=>{ setShowContact(true); }, 2000);
+        }else{
+            setShowContact(true);
+        }
+    },[isVisible])
+
     return(
         <>
-            Contact
+            {
+                showContact
+                    ?
+                <main className={`contactWrap ${isMount}`}>
+                    컨텍트
+                </main>    
+                    :
+                <></>
+            }
+
+            
         </>
     )
 }
 
-export default Contact;
+
+const mapStateToProps = ({menu}) => ({
+    isVisible : menu.isVisible,
+    isMount : menu.isMount
+})
+
+const mapDispatchToProps = ({ setIsVisible });
+
+export default connect(mapStateToProps, mapDispatchToProps)(Contact);

@@ -19,7 +19,7 @@ a{
 /*---------- Mount Effect ---------- */
 
 
-.navMount{ animation: 0.8s ease-in-out navMountEffect; }
+.navMount{ animation: 0.7s ease-in-out navMountEffect; }
 @keyframes navMountEffect {
     0%{
       transform: translateY(-80px);
@@ -41,16 +41,66 @@ a{
     }
 }
 
-.mount1{ animation: 0.7s ease-in-out mountEffect1; }
-@keyframes mountEffect1 {
+.mountSlideLeft{ animation: 0.3s ease-in-out mountSlideLeftEffect; }
+@keyframes mountSlideLeftEffect {
     0%{
+      transform: translateX(100vw);
       opacity: 0;
     }
     100%{
+      transform: translateX(0);
         opacity: 1;
     }
 }
 
+.unmountSlideLeft{ animation: 0.3s ease-in-out unmountSlideLeftEffect; }
+@keyframes unmountSlideLeftEffect {
+    0%{
+      transform: translateX(0);
+      opacity: 1;
+    }
+    100%{
+      transform: translateX(-100vw);
+        opacity: 0;
+    }
+}
+
+.mountSlideRight{ animation: 0.3s ease-in-out mountSlideRightEffect; }
+@keyframes mountSlideRightEffect {
+    0%{
+      transform: translateX(-100vw);
+      opacity: 0;
+    }
+    100%{
+      transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.unmountSlideRight{ animation: 0.3s ease-in-out unmountSlideRightEffect; }
+@keyframes unmountSlideRightEffect {
+  0%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100%{
+    transform: translateX(100vw);
+      opacity: 0;
+  }
+}
+
+
+.fadeOut{ animation: 0.3s ease-in-out fadeOutEffect; }
+@keyframes fadeOutEffect {
+    0%{
+      opacity: 1;
+      /* transform: translate(-50%, -50%) scale(1); */
+    }
+    100%{
+      opacity: 0;
+      /* transform: translate(-50%, -50%) scale(5); */
+    }
+}
 
 /* ---------- Nav---------- */
 
@@ -99,17 +149,25 @@ a{
   background-color: #000;
 }
 
+/* ---------- common ---------- */
+
+.aboutWrap, .skillWrap, .pofolWrap, .contactWrap{
+  width: 85%;
+  height: calc(100vh - 100px);
+  background-color: #c4c4c4;
+}
 
 /* ---------- home ---------- */
 
-.homeWrap{
+.homeWrap {
   position: relative;
   top: 0; left: 0;
   width: 100vw;
   height: calc(100vh - 100px);
 }
 
-.Typewriter{
+
+.typewriter-wrap{
   position: absolute;
   top: 42%; left: 50%;
   transform: translate(-50%, -50%);
@@ -122,15 +180,24 @@ a{
 
 /* ---------- intro ---------- */
 
-.introWrap{
-  width: 85%;
-  background: #000;
-  height: calc(100vh - 100px);
-  overflow: scroll;
-}
 
 .introWrap>p{
   width: 100px;
   height: 2000px;
   border: 1px solid #000;
 }
+
+/* ---------- About ---------- */
+
+
+
+/* ---------- Skill ---------- */
+
+
+
+/* ---------- portfolio ---------- */
+
+
+
+/* ---------- contact ---------- */
+

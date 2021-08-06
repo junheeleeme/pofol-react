@@ -1,10 +1,10 @@
 // types.js -> reducer.js -> rootReducer.js
 
 import { combineReducers } from "redux";
-import indexReducer from "./index/reducer";
+import menuReducer from "./menu/reducer";
 
 const rootReducer = combineReducers({
-    index : indexReducer
+    menu : menuReducer
 })
 
 export default rootReducer;

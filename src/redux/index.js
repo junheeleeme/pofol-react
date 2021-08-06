@@ -1,4 +1,6 @@
 
 // types.js -> actions.js -> index.js
 
-export { setIsVisivle } from './index/actions'; 
+export { setIsVisible } from './menu/actions'; 
+export { setIsMount } from './menu/actions'; 
+export { setCurrentMenu } from './menu/actions'; 
