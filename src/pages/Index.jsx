@@ -2,46 +2,72 @@ import React, { useState, useEffect } from 'react'
 import Typewriter from 'typewriter-effect';
 import { connect } from 'react-redux';
 import { setIsVisible } from '../redux/index'
+import styled from 'styled-components'
 
-const Index = ({ isVisible, isMount, setIsVisible}) => {
+const SectionWrap = styled.section`
+    position: relative;
+    top: 0; left: 0;
+    width: 100vw;
+    height: calc(100vh - 80px);
+`
+const TyperWrap = styled.div`
+    position: absolute;
+    top: 42%; left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+        .Typewriter__wrapper{
+            color: ${props => props.theme.colors.textColor};
+            font-size: 60px;
+        }
+        .Typewriter__cursor{
+            color: ${props => props.theme.colors.textColor};
+            font-size: 70px;
+        }
+`
+
+
+const Index = ({ isVisible, isMount, theme }) => {
 
     const [isAni, setIsAni] = useState('');
 
     useEffect(()=>{
-        if(isMount.substr(0,7) === 'unmount'){
+        if(isMount === 'unmountSlideLeft'){
             setIsAni("fadeOut");
+        }else{
+            setIsAni("fadeIn");
         }
     },[isMount])
 
 
     return(
         <>
-            <section className={`homeWrap`}>
+            <SectionWrap>
                 {
                     isVisible ? 
-                    <div className={`typewriter-wrap ${isAni}`}>
+                    <TyperWrap className={`${isAni}`} theme={theme}>
                         <Typewriter
                             options={{
-                                strings: [`I'm Front-End Developer`, `I'm Web Developer`],
+                                strings: ['﹤ PORTFOLIO／﹥', `﹤ I'm Front-End Developer／﹥`],
                                 autoStart: true,
                                 loop: true,
                                 delay : 70,
                                 deleteSpeed : 35,
-                                pauseFor : 7000
+                                pauseFor : 5000,
                             }}
                         />
-                    </div>
+                    </TyperWrap>
                     :
                     <></>
                 }
-            </section>
+            </SectionWrap>
         </>
     )
 }
 
-const mapStateToProps = ({menu}) => ({
+const mapStateToProps = ({menu, theme}) => ({
     isVisible : menu.isVisible,
-    isMount : menu.isMount
+    isMount : menu.isMount,
+    theme : theme.theme
 })
 
 const mapDispatchToProps = ({ setIsVisible });

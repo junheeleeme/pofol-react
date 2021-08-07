@@ -2,8 +2,16 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { setIsVisible } from '../redux/index'
+import styled from 'styled-components'
 
-const Intro = ({isVisible, isMount, setIsVisible}) => {
+const MainStyled = styled.main`
+    background: ${props=> props.theme.colors.bg2Color};
+    max-width: 1080px;
+    height: calc(100vh - 80px);
+    transition: ${props=> props.theme.colors.trans};
+`
+
+const Intro = ({isVisible, isMount, theme}) => {
 
     const [showIntro, setShowIntro] = useState(false);
 
@@ -20,10 +28,9 @@ const Intro = ({isVisible, isMount, setIsVisible}) => {
             {
                 showIntro 
                     ? 
-                <main className={`aboutWrap ${isMount}`}>
+                <MainStyled className={isMount}>
                     어바웃
-                
-                </main>
+                </MainStyled>
                     :
                 <></>
             }

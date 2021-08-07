@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import { setIsVisible } from '../redux/index'
+import styled from 'styled-components'
 
-const Portfolio = ({isVisible, isMount, setIsVisible}) => {
+const MainStyled = styled.main`
+    background: ${props=> props.theme.colors.bg2Color};
+    max-width: 1080px;
+    height: calc(100vh - 80px);
+    transition: ${props=> props.theme.colors.trans};
+`
+
+const Portfolio = ({isVisible, isMount, theme}) => {
 
     const [showPofol, setShowPofol] = useState(false);
 
@@ -18,9 +26,9 @@ const Portfolio = ({isVisible, isMount, setIsVisible}) => {
         <>
             {
                 showPofol ?
-                <main className={`pofolWrap ${isMount}`}>
+                <MainStyled className={isMount}>
                     포폴
-                </main>
+                </MainStyled>
                 :
                 <></>
             }

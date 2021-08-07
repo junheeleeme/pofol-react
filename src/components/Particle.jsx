@@ -1,10 +1,23 @@
 import React from 'react'
 import Particles from 'react-particles-js'
+import styled from 'styled-components'
 
-const Particle = () => {
+
+const ParticlesStyled = styled(Particles)`
+    position: absolute;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -999;
+    background-color: ${props => props.theme.colors.bgColor};
+    transition: ${props=> props.theme.colors.trans};
+`
+
+const Particle = ({ theme }) => {
+    
     return(
         <>
-            <Particles className="bg bgMount" width="100%" height="100%"
+            <ParticlesStyled  className="bgMount" width="100%" height="100%"
                 params={{
                     "particles": {
                     "number": {
@@ -14,8 +27,8 @@ const Particle = () => {
                             "value_area": 1500
                         }
                     },
-                    "color" : {
-                        "value" : '#fff'
+                    "color" : { 
+                        "value" : `${theme.colors.textColor}`
                     },
                     "shape" : {
                         "type" : "circle",
@@ -32,7 +45,7 @@ const Particle = () => {
                         "speed": 0.3
                     },
                     "size": {
-                        "value": 1.2
+                        "value": 1.7
                     },
                     "opacity": {
                         "anim": {
@@ -60,5 +73,6 @@ const Particle = () => {
         </>
     )
 }
+
 
 export default Particle;

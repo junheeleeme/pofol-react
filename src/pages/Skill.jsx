@@ -1,6 +1,14 @@
 import React, { useEffect ,useState } from 'react'
 import { connect } from 'react-redux';
 import { setIsVisible } from '../redux/index'
+import styled from 'styled-components'
+
+const MainStyled = styled.main`
+    background: ${props=> props.theme.colors.bg2Color};
+    max-width: 1080px;
+    height: calc(100vh - 80px);
+    transition: ${props=> props.theme.colors.trans};
+`
 
 const Skill = ({isVisible, isMount, setIsVisible}) => {
 
@@ -18,9 +26,9 @@ const Skill = ({isVisible, isMount, setIsVisible}) => {
         <>
             {
                 showSkill ?
-                <main className={`skillWrap ${isMount}`}>
+                <MainStyled className={isMount}>
                     스킬
-                </main>
+                </MainStyled>
                 :
                 <></>
             }

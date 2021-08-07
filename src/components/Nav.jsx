@@ -2,27 +2,53 @@ import React, { memo, useEffect, useState, useRef } from 'react'
 import { NavLink, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setIsMount, setCurrentMenu } from '../redux/index'
+import styled from 'styled-components'
+import ThemeToggle from '../components/ThemeToggle';
 
-const Nav = ({ route, currentMenu, setIsMount, setCurrentMenu }) => {
+const HeaderStyled = styled.header`
+    height: 80px;
+    border: 1px solid #000`
+const NavStyled = styled.nav`
+    position: relative;
+    max-width: 1080px;
+    text-align: center;`
+const UlStyled = styled.ul`
+    display: inline-block;
+    line-height: 80px;
+    text-align: center;
+    white-space:nowrap;
+    overflow-x:scroll;`
+const LiStyled = styled.li`
+    display: inline-block;`
+const LavLinkStyled = styled(NavLink)`
+    padding: 10px 30px;
+    color: #B2B1B9;
+    font-size: 20px;
+    transition: ${props=> props.theme.colors.trans};
+    &:hover {
+        color: ${props=> props.theme.colors.textColor};
+    }
+    &.active{
+        color: ${props=> props.theme.colors.textColor};
+        font-weight: bold;
+    }`
+
+
+const Nav = ({ route, currentMenu, setIsMount, setCurrentMenu, theme }) => {
     
     const his = useHistory();
     const navUl = useRef(null);
-    const [prevMenu, setPrevMenu] = useState('');
-
-
+    const [responClass, setResponClass] = useState('');
 
     const onClickMenu = (e) => {
         e.preventDefault();
-        
-        setPrevMenu(currentMenu); //이전 메뉴 저장
+
         navUl.current.childNodes.forEach((li, idx) => {
-            
+                
             li.children[0].classList.remove('active');
 
             if(li === e.target.parentElement){ //클릭한 메뉴 HTML 요소 검색
-
-                if(currentMenu !== idx){ //같은 메뉴를 안 눌렀을 때 실행
-
+                if(currentMenu !== idx){ //같은 메뉴를 안 눌렀을 때 실행                
                     if(currentMenu < idx){ //슬라이드 효과 방향 구분
                         setIsMount("unmountSlideLeft");
                         setTimeout(()=> { setIsMount("mountSlideLeft"); }, 300);
@@ -35,16 +61,14 @@ const Nav = ({ route, currentMenu, setIsMount, setCurrentMenu }) => {
             }
         });
 
-            e.target.classList.add('active');        
+        e.target.classList.add('active');        
     }
-    
 
     useEffect(()=>{
-        console.log(prevMenu)
+        
         route.map((v, idx) => {
-            
             if(idx === currentMenu){
-                setTimeout(()=> { his.push(v.path); }, 300);               
+                setTimeout(()=> { his.push(v.path); }, 300); //0.3s 이후에 주소 이동         
             }
         });
 
@@ -53,15 +77,24 @@ const Nav = ({ route, currentMenu, setIsMount, setCurrentMenu }) => {
 
     return (
         <>
-            <nav className="nav navMount">
-                <ul ref={navUl}>
-                    <li><NavLink onClick={onClickMenu} exact to="/" >Home</NavLink></li>
-                    <li><NavLink onClick={onClickMenu} to="/about">About</NavLink></li>
-                    <li><NavLink onClick={onClickMenu} to="/skill">Skill</NavLink></li>
-                    <li><NavLink onClick={onClickMenu} to="/portfolio">Portfolio</NavLink></li>
-                    <li><NavLink onClick={onClickMenu} to="/contact">Contact</NavLink></li>
-                </ul>
-            </nav>
+            <HeaderStyled className={`header`}>
+                <NavStyled className="navMount">
+                    
+                    <UlStyled ref={navUl} className="navul">
+                    {
+                        route.map((v, idx) =>
+                            <LiStyled key={v.title+idx}>
+                                <LavLinkStyled theme={theme} onClick={onClickMenu} exact to={v.path}>
+                                    {v.title}
+                                </LavLinkStyled>
+                            </LiStyled>
+                        )
+                    }
+                    </UlStyled>
+                    <ThemeToggle/>
+                </NavStyled>
+            </HeaderStyled>
+
         </>
     )
 }

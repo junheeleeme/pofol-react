@@ -3,17 +3,19 @@
 *{
   box-sizing: border-box;
   margin: 0 auto;
-  color: #fff;
   font-family: 'Roboto', sans-serif;
 }
 
 a{
   text-decoration: none;
-  color: #000;
 }
 
 .juni{
   position: relative;
+}
+ul{
+    padding-left: 0;
+    list-style: none;
 }
 
 /*---------- Mount Effect ---------- */
@@ -89,93 +91,92 @@ a{
   }
 }
 
+.fadeIn{ animation: 0.3s ease-in-out fadeInEffect; }
+@keyframes fadeInEffect {
+    0%{
+      opacity: 0;
+      transform: translate(-50%, -50%) rotate(180deg);
+    }
+    100%{
+      opacity: 1;
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
 
 .fadeOut{ animation: 0.3s ease-in-out fadeOutEffect; }
 @keyframes fadeOutEffect {
     0%{
       opacity: 1;
-      /* transform: translate(-50%, -50%) scale(1); */
+      transform: translate(-50%, -50%) rotate(0deg);
     }
     100%{
       opacity: 0;
-      /* transform: translate(-50%, -50%) scale(5); */
+      transform: translate(-50%, -50%) rotate(180deg);
     }
 }
 
 /* ---------- Nav---------- */
 
-.nav{ width: 100%; }
-
-.nav>ul{
-  padding: 0;
-  list-style: none;
-  display: block;
-  width: 90%;
-  height: 100px;
-  text-align: center;
+@media screen and (max-width: 767px){
+  .navul{
+    width: 100%;
+  }
+  .navul>li>a{
+    font-size: 16px;
+    padding: 5px 10px;
+  }
+  .themeToggle{
+    right: 10px !important;
+  }
 }
 
-.nav>ul>li{
-  display: inline-block;
-  line-height: 100px;
-  margin: 0 10px; 
-}
+@media screen and (max-width: 480px){
+  .header{
+    position: relative !important;
+    height: 0; left: 0 !important;
+  }
+  .themeToggle{
+    
+  }
 
-.nav>ul>li>a{
-  padding: 10px 30px;
-  color: #383838;
-  font-size: 20px;
-  transition: 0.25s ease-in-out;
-}
-
-.nav>ul>li>a:hover{
-  color: #fff;
-}
-
-.active{
-  color: #fff !important;
-}
-
-
-/* ---------- Bg---------- */
-
-.bg{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -999;
-  background-color: #000;
+  
 }
 
 /* ---------- common ---------- */
 
-.aboutWrap, .skillWrap, .pofolWrap, .contactWrap{
-  width: 85%;
-  height: calc(100vh - 100px);
-  background-color: #c4c4c4;
+
+@media screen and (max-width: 1080px){
+  .aboutWrap, .skillWrap, .pofolWrap, .contactWrap{
+    width: calc(100vw - 50px);
+    height: calc(100vh - 100px);
+    background-color: #d9d9d9;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .aboutWrap, .skillWrap, .pofolWrap, .contactWrap{
+    width: calc(100% - 10px);
+    height: calc(100vh - 100px);
+    background-color: #d9d9d9;
+  }
 }
 
 /* ---------- home ---------- */
 
-.homeWrap {
-  position: relative;
-  top: 0; left: 0;
-  width: 100vw;
-  height: calc(100vh - 100px);
+@media screen and (max-width: 767px) {
+
+  .Typewriter__wrapper, .Typewriter__cursor{
+    font-size: 40px !important;
+  }
+  
 }
 
+@media screen and (max-width: 537px) {
 
-.typewriter-wrap{
-  position: absolute;
-  top: 42%; left: 50%;
-  transform: translate(-50%, -50%);
-  white-space: nowrap;
-}
-
-.Typewriter>span{
-  font-size: 50px;
+  .Typewriter__wrapper, .Typewriter__cursor{
+    font-size: 25px !important;
+  }
+  
 }
 
 /* ---------- intro ---------- */

@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import { setIsVisible } from '../redux/index'
+import styled from 'styled-components'
 
-const Contact = ({isVisible, isMount, setIsVisible}) => {
+const MainStyled = styled.main`
+    background: ${props=> props.theme.colors.bg2Color};
+    max-width: 1080px;
+    height: calc(100vh - 80px);
+    transition: ${props=> props.theme.colors.trans};
+`
+
+const Contact = ({isVisible, isMount }) => {
 
 
     const [showContact, setShowContact] = useState(false);
@@ -20,9 +28,9 @@ const Contact = ({isVisible, isMount, setIsVisible}) => {
             {
                 showContact
                     ?
-                <main className={`contactWrap ${isMount}`}>
+                <MainStyled className={isMount}>
                     컨텍트
-                </main>    
+                </MainStyled>    
                     :
                 <></>
             }

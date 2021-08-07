@@ -7,11 +7,11 @@ const initialState = {
     isMount : 'mountSlideLeft', //mountSlideLeft,unmountSlideLeft,mountSlideRigt, unmountSlideRight 
     currentMenu : '',
     route : [
-        { id : 0, path : '/' },
-        { id : 1,  path : '/about' },
-        { id : 2,  path : '/skill' },
-        { id : 3,  path : '/portfolio' },
-        { id : 4,  path : '/contact' }
+        { id : 0, path : '/', title : 'Home' },
+        { id : 1,  path : '/about', title : 'About' },
+        { id : 2,  path : '/skill', title : 'Skill' },
+        { id : 3,  path : '/portfolio', title : 'Portfolio' },
+        { id : 4,  path : '/contact', title : 'Contact' }
     ]
 }
 
