@@ -115,33 +115,6 @@ ul{
     }
 }
 
-/* ---------- Nav---------- */
-
-@media screen and (max-width: 767px){
-  .navul{
-    width: 100%;
-  }
-  .navul>li>a{
-    font-size: 16px;
-    padding: 5px 10px;
-  }
-  .themeToggle{
-    right: 10px !important;
-  }
-}
-
-@media screen and (max-width: 480px){
-  .header{
-    position: relative !important;
-    height: 0; left: 0 !important;
-  }
-  .themeToggle{
-    
-  }
-
-  
-}
-
 /* ---------- common ---------- */
 
 
@@ -181,12 +154,6 @@ ul{
 
 /* ---------- intro ---------- */
 
-
-.introWrap>p{
-  width: 100px;
-  height: 2000px;
-  border: 1px solid #000;
-}
 
 /* ---------- About ---------- */
 
