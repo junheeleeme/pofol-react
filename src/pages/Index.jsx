@@ -4,17 +4,19 @@ import { connect } from 'react-redux';
 import { setIsVisible } from '../redux/index'
 import styled from 'styled-components'
 
-const SectionWrap = styled.section`
+const MainIntro = styled.main`
     position: relative;
     top: 0; left: 0;
     width: 100vw;
     height: calc(100vh - 80px);
+    @media screen and (max-width: 767px) { height: 100vh; }
 `
 const TyperWrap = styled.div`
     position: absolute;
-    top: 42%; left: 50%;
+    top: 43%; left: 50%;
     transform: translate(-50%, -50%);
     white-space: nowrap;
+    user-select: none;
         .Typewriter__wrapper{
             color: ${props => props.theme.colors.textColor};
             font-size: 60px;
@@ -23,6 +25,8 @@ const TyperWrap = styled.div`
             color: ${props => props.theme.colors.textColor};
             font-size: 70px;
         }
+    @media screen and (max-width: 767px) { top: 48%; letter-spacing: -1px; }
+    @supports (-webkit-touch-callout: none) { top: 42% !important; };
 `
 
 
@@ -41,7 +45,8 @@ const Index = ({ isVisible, isMount, theme }) => {
 
     return(
         <>
-            <SectionWrap>
+            <MainIntro>
+                <section>
                 {
                     isVisible ? 
                     <TyperWrap className={`${isAni}`} theme={theme}>
@@ -59,7 +64,8 @@ const Index = ({ isVisible, isMount, theme }) => {
                     :
                     <></>
                 }
-            </SectionWrap>
+                </section>
+            </MainIntro>
         </>
     )
 }

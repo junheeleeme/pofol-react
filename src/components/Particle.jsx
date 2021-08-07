@@ -21,7 +21,7 @@ const Particle = ({ theme }) => {
                 params={{
                     "particles": {
                     "number": {
-                        "value": 150,
+                        "value": 180,
                         "density": {
                             "enable": true,
                             "value_area": 1500
@@ -45,7 +45,7 @@ const Particle = ({ theme }) => {
                         "speed": 0.3
                     },
                     "size": {
-                        "value": 1.7
+                        "value": 1.5
                     },
                     "opacity": {
                         "anim": {

@@ -8,6 +8,8 @@ const MainStyled = styled.main`
     max-width: 1080px;
     height: calc(100vh - 80px);
     transition: ${props=> props.theme.colors.trans};
+    @media screen and (max-width: 1079px) { width: calc(100% - 40px); }
+    @media screen and (max-width: 767px) { width: 100vw; height: 100vh; }
 `
 
 const Contact = ({isVisible, isMount }) => {

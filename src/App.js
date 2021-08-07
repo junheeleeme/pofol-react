@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ThemeProvider } from "styled-components";
 import styled from 'styled-components';
-import Nav from './components/Nav'
+import Header from './components/Header'
 import Particle from './components/Particle';
 import Index from './pages/Index'
 import About from './pages/About'
@@ -20,42 +20,46 @@ const Juni = styled.div`
     height: 100vh;
     overflow: hidden;
     background-color: transparent;
+    @supports (-webkit-touch-callout: none) { height: -webkit-fill-available; };
 `
 
-const App = ({ themeMode, theme, setThemeMode, route, isVisible, setIsVisible, setCurrentMenu }) => {
+const App = ({ theme, setThemeMode, route, isVisible, setIsVisible, setCurrentMenu }) => {
 
   const { pathname } = useLocation();
-  const [isNav, setIstNav] = useState(false);
+  const [isHeader, setIsHeader] = useState(false);
 
   useEffect(() => {
 
     /* 컬러 모드 */
     const saveColorMode = localStorage.getItem("colorMode");
-    
-    if( saveColorMode === null ){ // colorMode 설정
-      setThemeMode('dark');
-      localStorage.setItem( "colorMode", "dark" );
-      
-    }else if( saveColorMode === 'dark' ){
-      setThemeMode('dark');
-      localStorage.setItem( "colorMode", "dark" );
-      console.log(themeMode);
-      
-    }else{
-      setThemeMode('light');
-      localStorage.setItem( "colorMode", "light" );
-      console.log(themeMode);
+
+    switch (saveColorMode) {
+      case null:
+        setThemeMode('dark');
+        localStorage.setItem( "colorMode", "dark" );
+        break;
+        case 'dark':
+          setThemeMode('dark');
+          localStorage.setItem( "colorMode", "dark" );
+          break;
+        case 'light':
+          setThemeMode('light');
+          localStorage.setItem( "colorMode", "light" );
+          break;
+      default:
+        break;
     }
+  
     /* 컬러 모드 */
 
     route.map((v, idx) => {
-      if(v.path === pathname){
+      if(v.path === pathname){ 
         setCurrentMenu(idx);
       }
-    })
+    });
 
-    if(!isVisible){ //isVisible = true 이면 첫 로딩이 아님
-      setTimeout(()=>{ setIstNav(true); }, 1200);
+    if(!isVisible){ //isVisible = true 이면 Particle로딩 완료
+      setTimeout(()=>{ setIsHeader(true); }, 1200);
       setTimeout(()=>{ setIsVisible(true); }, 2500); 
     }else{
       setIsVisible(true);
@@ -80,7 +84,7 @@ const App = ({ themeMode, theme, setThemeMode, route, isVisible, setIsVisible, s
       <ThemeProvider theme={theme}>
         <Juni>
               <Particle theme={theme}/> 
-              { isNav ? <Nav/> : <></> }
+              { isHeader ? <Header/> : <></> }
               { choosePage() }
         </Juni>
       </ThemeProvider>

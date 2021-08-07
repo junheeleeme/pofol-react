@@ -3,33 +3,38 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { setIsVisible } from '../redux/index'
 import styled from 'styled-components'
+import Container from './Container';
 
 const MainStyled = styled.main`
     background: ${props=> props.theme.colors.bg2Color};
     max-width: 1080px;
     height: calc(100vh - 80px);
     transition: ${props=> props.theme.colors.trans};
-`
+    @media screen and (max-width: 1079px) { width: calc(100% - 40px); }
+    @media screen and (max-width: 767px) { width: 100vw; height: 100vh; }`
+
 
 const Intro = ({isVisible, isMount, theme}) => {
 
-    const [showIntro, setShowIntro] = useState(false);
+    const [showAbout, setShowAbout] = useState(false);
 
     useEffect(()=>{
         if(!isVisible){
-            setTimeout(()=>{ setShowIntro(true); }, 2000);
+            setTimeout(()=>{ setShowAbout(true); }, 2000);
         }else{
-            setShowIntro(true);
+            setShowAbout(true);
         }
     },[isVisible])
 
     return(
         <>
             {
-                showIntro 
+                showAbout 
                     ? 
                 <MainStyled className={isMount}>
-                    어바웃
+                    <Container>
+                        
+                    </Container>
                 </MainStyled>
                     :
                 <></>
