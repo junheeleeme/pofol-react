@@ -6,7 +6,7 @@ export const dark = {
         text3Color : '#e6e6e6',
         bg2Color: '#0e0e0f',
         bg3Color : '#242526',
-        trans: '0.5s ease-in-out' 
+        trans: '1s ease-in-out' 
     }
 }
 
@@ -18,6 +18,6 @@ export const light = {
         text3Color : '#212121',
         bg2Color : '#f1f1f1',
         bg3Color : '#e3e3e3',
-        trans: '0.5s ease-in-out'
+        trans: '1s ease-in-out'
     }
 }

@@ -5,6 +5,8 @@ import styled from 'styled-components'
 import Main from '../components/Main';
 import SubTitle from '../components/SubTitle';
 import Row from '../components/Row';
+import Col from '../components/Col';
+import Cards from '../components/Cards';
 
 const MainStyled = styled.main`
     background: ${props=> props.theme.colors.bg2Color};
@@ -29,15 +31,23 @@ const Portfolio = ({isVisible, isMount, theme}) => {
 
     return(
         <>
-            {
-                showPofol ?
-                <MainStyled className={isMount}>
-                    포폴
-                </MainStyled>
-                :
-                <></>
-            }
-            
+            <Main>
+                <SubTitle>Portfolio</SubTitle>
+                <Row columns={[50, 50]}>
+                    <Col>
+                        <Cards>Simple-React-Board</Cards>
+                    </Col>
+                    <Col>
+                        <Cards>Simple-React-Board</Cards>
+                    </Col>
+                    <Col>
+                        <Cards>Simple-React-Board</Cards>
+                    </Col>
+                    <Col>
+                        <Cards>Simple-React-Board</Cards>
+                    </Col>
+                </Row>
+            </Main>
         </>
     )
 }

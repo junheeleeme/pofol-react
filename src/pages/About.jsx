@@ -10,8 +10,8 @@ import Col from '../components/Col'
 
 const ImgStyled = styled.div`
     display: inline-block; width: 280px; height: 280px; border-radius: 50%; margin-left: 20px;
-    @media screen and (max-width: 767px) { width: 250px; height: 250px;  }
-    @media screen and (max-width: 480px) { width: 260px; height: 260px; margin-left: 0px;  }
+    @media screen and (max-width: 767px) { margin-left: 40px;  }
+    @media screen and (max-width: 480px) { width: 260px; height: 260px; margin-left: 0px; float: right;  }
     background: url(${ProfileImg}) no-repeat center/100%;`
 const H3Styled = styled.h3`
 font-size: 27px; margin: 13px 0 40px 0; font-weight: 600; letter-spacing: -1px;
