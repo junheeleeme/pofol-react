@@ -16,11 +16,11 @@ import { setIsVisible, setCurrentMenu, setThemeMode } from './redux/index'
 
 const Juni = styled.div`
     position: relative;    
-    width: 100wv;
+    width: 100vw;
     min-height: 100vh;
     overflow-x: hidden;
     background-color: transparent;
-    @supports (-webkit-touch-callout: none) { height: -webkit-fill-available; };
+    // @supports (-webkit-touch-callout: none) { height: -webkit-fill-available; };
 `
 const App = ({ theme, setThemeMode, route, isVisible, setIsVisible, setCurrentMenu }) => {
 
