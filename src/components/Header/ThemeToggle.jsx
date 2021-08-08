@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { setThemeMode } from '../redux/index'
+import { setThemeMode } from '../../redux/index'
 import styled from 'styled-components'
 
 const ButtonStyled = styled.button`
@@ -10,7 +10,7 @@ const ButtonStyled = styled.button`
     transform: translate(0, -50%);
     width: 54px; height: 32px;
     border: none;
-    background: #dedede;
+    background: #c9c9c9;
     border-radius: 20px;
     cursor : pointer;
     padding: 4px;

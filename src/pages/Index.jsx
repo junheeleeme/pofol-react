@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import { setIsVisible } from '../redux/index'
 import styled from 'styled-components'
 
-const MainIntro = styled.main`
+const IntroStyled = styled.main`
     position: relative;
     top: 0; left: 0;
     width: 100vw;
-    height: calc(100vh - 80px);
-    @media screen and (max-width: 767px) { height: 100vh; }
+    min-height: calc(100vh - 80px);
+    @media screen and (max-width: 767px) { min-height: 100vh; }
 `
 const TyperWrap = styled.div`
     position: absolute;
@@ -29,7 +29,6 @@ const TyperWrap = styled.div`
     @supports (-webkit-touch-callout: none) { top: 42% !important; };
 `
 
-
 const Index = ({ isVisible, isMount, theme }) => {
 
     const [isAni, setIsAni] = useState('');
@@ -45,19 +44,19 @@ const Index = ({ isVisible, isMount, theme }) => {
 
     return(
         <>
-            <MainIntro>
+            <IntroStyled>
                 <section>
                 {
                     isVisible ? 
                     <TyperWrap className={`${isAni}`} theme={theme}>
                         <Typewriter
                             options={{
-                                strings: ['﹤ PORTFOLIO／﹥', `﹤ I'm Front-End Developer／﹥`],
+                                strings: ['﹤ PORTFOLIO／﹥', `﹤ I'm Front-End Developer／﹥`, `﹤ I'm Web Developer／﹥`],
                                 autoStart: true,
                                 loop: true,
                                 delay : 70,
                                 deleteSpeed : 35,
-                                pauseFor : 5000,
+                                pauseFor : 4000,
                             }}
                         />
                     </TyperWrap>
@@ -65,7 +64,7 @@ const Index = ({ isVisible, isMount, theme }) => {
                     <></>
                 }
                 </section>
-            </MainIntro>
+            </IntroStyled>
         </>
     )
 }

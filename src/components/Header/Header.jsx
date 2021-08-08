@@ -1,11 +1,11 @@
 import React, { memo, useEffect, useState, useRef } from 'react'
 import { NavLink, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { setIsMount, setCurrentMenu } from '../redux/index'
+import { setIsMount, setCurrentMenu } from '../../redux/index'
 import styled from 'styled-components'
-import ThemeToggle from './ThemeToggle';
-import closeBtn from '../images/closeBtn.png';
-import topMenu from '../images/menu.png';
+import ThemeToggle from '../Header/ThemeToggle'
+import closeBtn from '../../images/closeBtn.png'
+import topMenu from '../../images/menu.png'
 
 const HeaderStyled = styled.header`
     height: 80px; display: block;
@@ -17,8 +17,7 @@ const HeaderStyled = styled.header`
     &.on{ right: 0px; }`
 const NavStyled = styled.nav`
     position: relative; max-width: 1080px; text-align: center;
-    @media screen and (max-width: 767px){ padding-top: 70px; }
-    .on`
+    @media screen and (max-width: 767px){ padding-top: 70px; }`
 const UlStyled = styled.ul`
     display: inline-block;
     line-height: 80px;
@@ -29,22 +28,21 @@ const LiStyled = styled.li`
     @media screen and (max-width: 767px){ display: block; width: 100%; height: 70px; }`
 const LavLinkStyled = styled(NavLink)`
     padding: 10px 30px; color: ${props=> props.theme.colors.text2Color};
-    font-size: 20px; transition: ${props=> props.theme.colors.trans};
+    font-size: 20px; transition: color ${props=> props.theme.colors.trans};
     &:hover { color: ${props=> props.theme.colors.textColor}; }
     &.active{ font-weight: bold; color: ${props=> props.theme.colors.textColor}; }
     @media screen and (max-width: 767px){ display: inline-block; font-size: 18px; width: 100%; padding: 0; }`
 const CrossBtnStyled = styled.div`
-    display: none; position: absolute; top: 15px; left: 15px;
-    width: 26px; height: 26px; padding: 5px; cursor: pointer;
-    background: url(${closeBtn}) no-repeat center/100%;
+    display: none; position: absolute; top: 18px; left: 18px;
+    width: 33px; height: 33px; padding: 5px; cursor: pointer;
+    background: url(${closeBtn}) no-repeat center/75%;
     @media screen and (max-width: 767px){ display: inline-block; }`
 const MenuBtnStyled = styled.div`
-    display: none; position: absolute; top: 15px; right: 15px; padding: 5px;
-    width: 25px; height: 25px; z-index: 1000; cursor: pointer;
-    background: url(${topMenu}) no-repeat center/100%; 
+    display: none; position: absolute; top: 18px; right: 18px; padding: 5px;
+    width: 30px; height: 30px; z-index: 1000; cursor: pointer;
+    background: url(${topMenu}) no-repeat center/80%; 
     @media screen and (max-width: 767px){ display: block; }
 `
-
 
 const Header = ({ route, currentMenu, setIsMount, setCurrentMenu, theme }) => {
     
@@ -100,6 +98,7 @@ const Header = ({ route, currentMenu, setIsMount, setCurrentMenu, theme }) => {
         <>
             <MenuBtnStyled onClick={onClickTopMenu}/>
             <HeaderStyled className={isTopMenu}>
+
                 <NavStyled className="navMount">
                     
                     <UlStyled ref={navUl} className="navul">

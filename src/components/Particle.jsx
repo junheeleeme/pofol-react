@@ -2,12 +2,11 @@ import React from 'react'
 import Particles from 'react-particles-js'
 import styled from 'styled-components'
 
-
 const ParticlesStyled = styled(Particles)`
     position: absolute;
     top: 0; left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     z-index: -999;
     background-color: ${props => props.theme.colors.bgColor};
     transition: ${props=> props.theme.colors.trans};

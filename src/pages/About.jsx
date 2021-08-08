@@ -1,44 +1,61 @@
 import React from 'react'
-import { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import { setIsVisible } from '../redux/index'
 import styled from 'styled-components'
-import Container from './Container';
+import Main from '../components/Main'
+import SubTitle from '../components/SubTitle'
+import Row from '../components/Row'
+import ProfileImg from '../images/profile.jpg'
+import Col from '../components/Col'
 
-const MainStyled = styled.main`
-    background: ${props=> props.theme.colors.bg2Color};
-    max-width: 1080px;
-    height: calc(100vh - 80px);
-    transition: ${props=> props.theme.colors.trans};
-    @media screen and (max-width: 1079px) { width: calc(100% - 40px); }
-    @media screen and (max-width: 767px) { width: 100vw; height: 100vh; }`
+const ImgStyled = styled.div`
+    display: inline-block; width: 280px; height: 280px; border-radius: 50%; margin-left: 20px;
+    @media screen and (max-width: 767px) { width: 250px; height: 250px;  }
+    @media screen and (max-width: 480px) { width: 260px; height: 260px; margin-left: 0px;  }
+    background: url(${ProfileImg}) no-repeat center/100%;`
+const H3Styled = styled.h3`
+font-size: 27px; margin: 13px 0 40px 0; font-weight: 600; letter-spacing: -1px;
+color: ${props=> props.theme.colors.text3Color};
+@media screen and (max-width: 960px){ font-size: 27px; text-align: right; }
+@media screen and (max-width: 480px){ font-size: 22px; text-align: left; }` 
+const UlStyled = styled.ul`
+    padding-left: 20px;
+@media screen and (max-width: 960px){ display: inline-block; float: right; margin-right: 30px; }
+@media screen and (max-width: 480px){ float: left; padding-left: 15px; }`
+const LiStyled = styled.li`
+    position: relative; font-size: 20px; margin-bottom: 13px; color: ${props=> props.theme.colors.text3Color};
+    letter-spacing: 0px;
+    @media screen and (max-width: 480px){ white-space: nowrap; font-size: 16px; } 
+    &:after{ content: ''; position absolute; left: -20px; top: 50%; transform: translate(0, -50%);
+    width: 5px; height: 5px; border-radius: 2px; background: ${props=> props.theme.colors.textColor};}`
+    
+const AStyled = styled.a`
+color: ${props=> props.theme.colors.text3Color}; `
 
+const Intro = ({theme}) => {
 
-const Intro = ({isVisible, isMount, theme}) => {
-
-    const [showAbout, setShowAbout] = useState(false);
-
-    useEffect(()=>{
-        if(!isVisible){
-            setTimeout(()=>{ setShowAbout(true); }, 2000);
-        }else{
-            setShowAbout(true);
-        }
-    },[isVisible])
-
-    return(
+    return( //Main -> Container -> {children}
         <>
-            {
-                showAbout 
-                    ? 
-                <MainStyled className={isMount}>
-                    <Container>
-                        
-                    </Container>
-                </MainStyled>
-                    :
-                <></>
-            }
+
+            <Main>
+                <SubTitle>About</SubTitle>
+                <Row columns={[35, 65]}>
+                    <Col>
+                        <ImgStyled/>
+                    </Col>
+                    <Col>
+                        <H3Styled>👋 안녕하세요. 풀스택 개발자를 꿈꾸는 이준희입니다.</H3Styled>
+                        <UlStyled>
+                            <LiStyled><strong>Birthday :</strong>&nbsp;1995.09.07</LiStyled>
+                            <LiStyled><strong>blog :</strong>&nbsp;<AStyled href="https://juni-official.tistory.com" target="_blank" title="새창으로 열기">https://juni-official.tistory.com</AStyled></LiStyled>
+                            <LiStyled><strong>Phone :</strong>&nbsp;+82) 010-5183-1652</LiStyled>
+                            <LiStyled><strong>E-mail :</strong> macjjuni@gmail.com</LiStyled>
+                            <LiStyled><strong>Addr :</strong>&nbsp;서울특별시 구로구 오리로11길</LiStyled>
+                        </UlStyled>
+                    </Col>
+                </Row>
+            </Main>
+
         </>
     )
 }

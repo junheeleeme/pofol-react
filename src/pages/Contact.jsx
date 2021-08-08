@@ -14,7 +14,6 @@ const MainStyled = styled.main`
 
 const Contact = ({isVisible, isMount }) => {
 
-
     const [showContact, setShowContact] = useState(false);
 
     useEffect(()=>{

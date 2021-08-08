@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ThemeProvider } from "styled-components";
 import styled from 'styled-components';
-import Header from './components/Header'
+import Header from './components/Header/Header'
 import Particle from './components/Particle';
 import Index from './pages/Index'
 import About from './pages/About'
@@ -17,12 +17,11 @@ import { setIsVisible, setCurrentMenu, setThemeMode } from './redux/index'
 const Juni = styled.div`
     position: relative;    
     width: 100wv;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
     background-color: transparent;
     @supports (-webkit-touch-callout: none) { height: -webkit-fill-available; };
 `
-
 const App = ({ theme, setThemeMode, route, isVisible, setIsVisible, setCurrentMenu }) => {
 
   const { pathname } = useLocation();

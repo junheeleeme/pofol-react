@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import { setIsVisible } from '../redux/index'
 import styled from 'styled-components'
+import Main from '../components/Main';
+import SubTitle from '../components/SubTitle';
+import Row from '../components/Row';
 
 const MainStyled = styled.main`
     background: ${props=> props.theme.colors.bg2Color};
