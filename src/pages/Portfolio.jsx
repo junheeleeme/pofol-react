@@ -1,63 +1,59 @@
 import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux';
-import { setIsVisible } from '../redux/index'
+import { Link, Route, Switch } from 'react-router-dom'
+import { connect } from 'react-redux'
+import MainSlide from '../components/MainSlide'
+import SubTitle from '../components/SubTitle'
+import Row from '../components/Row'
+import Col from '../components/Col'
+import Cards from '../components/Cards'
+import PofolDetail from './PofolDetail'
 import styled from 'styled-components'
-import Main from '../components/Main';
-import SubTitle from '../components/SubTitle';
-import Row from '../components/Row';
-import Col from '../components/Col';
-import Cards from '../components/Cards';
 
-const MainStyled = styled.main`
-    background: ${props=> props.theme.colors.bg2Color};
-    max-width: 1080px;
-    height: calc(100vh - 80px);
-    transition: ${props=> props.theme.colors.trans};
-    @media screen and (max-width: 1079px) { width: calc(100% - 40px); }
-    @media screen and (max-width: 767px) { width: 100vw; height: 100vh; }
-`
 
-const Portfolio = ({isVisible, isMount, theme}) => {
+const LinkStyled = styled(Link)`
+display: inline-block; width: 100%; height: 100%;`
 
-    const [showPofol, setShowPofol] = useState(false);
 
-    useEffect(()=>{
-        if(!isVisible){
-            setTimeout(()=>{ setShowPofol(true); }, 2000);
-        }else{
-            setShowPofol(true);
-        }
-    },[isVisible])
+const Portfolio = ({pofol}) => {
+
+    console.log(pofol)
 
     return(
         <>
-            <Main>
-                <SubTitle>Portfolio</SubTitle>
-                <Row columns={[50, 50]}>
-                    <Col>
-                        <Cards>Simple-React-Board</Cards>
-                    </Col>
-                    <Col>
-                        <Cards>Simple-React-Board</Cards>
-                    </Col>
-                    <Col>
-                        <Cards>Simple-React-Board</Cards>
-                    </Col>
-                    <Col>
-                        <Cards>Simple-React-Board</Cards>
-                    </Col>
-                </Row>
-            </Main>
+            <Switch>
+                <Route exact path="/portfolio">
+                    <MainSlide>
+                        <SubTitle>Portfolio</SubTitle>
+                            <Row columns={['50', '50']}>
+                                {
+                                    pofol.map((po, idx) => 
+                                    <Col  key={po.title + idx+1}>
+                                        
+                                            <Cards>
+                                                <LinkStyled to={`/portfolio/${idx+1}`}>
+                                                    {po.title}
+                                                </LinkStyled>
+                                            </Cards>
+                                        
+                                    </Col>
+                                    )
+                                }
+                            </Row>
+
+                    </MainSlide>
+                </Route>
+                <Route path="/portfolio/:id">
+                    <PofolDetail/>
+                </Route>
+            </Switch>
+
         </>
     )
 }
 
 
-const mapStateToProps = ({menu}) => ({
-    isVisible : menu.isVisible,
-    isMount : menu.isMount
+const mapStateToProps = ({pofol}) => ({
+    pofol : pofol.pofol
 })
 
-const mapDispatchToProps = ({ setIsVisible });
-
-export default connect(mapStateToProps, mapDispatchToProps)(Portfolio);
+export default connect(mapStateToProps)(Portfolio);

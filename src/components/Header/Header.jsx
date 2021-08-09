@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useState, useRef } from 'react'
-import { NavLink, useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setIsMount, setCurrentMenu } from '../../redux/index'
 import styled from 'styled-components'
@@ -10,11 +10,13 @@ import topMenu from '../../images/menu.png'
 const HeaderStyled = styled.header`
     height: 80px; display: block;
     @media screen and (max-width: 767px){ 
-    position: absolute; top: 0; right: -280px;
+    position: fixed; top: 0; right: -280px;
     width: 280px; height: 100%; z-index: 1100; transition: 0.3s ease-in-out;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     background: ${props=> props.theme.colors.bg3Color}; }
-    &.on{ right: 0px; }`
+    &.on{ 
+        @media screen and (max-width: 767px){ right: 0px; };
+    }`
 const NavStyled = styled.nav`
     position: relative; max-width: 1080px; text-align: center;
     @media screen and (max-width: 767px){ padding-top: 70px; }`
@@ -26,7 +28,7 @@ const UlStyled = styled.ul`
 const LiStyled = styled.li`
     display: inline-block;
     @media screen and (max-width: 767px){ display: block; width: 100%; height: 70px; }`
-const LavLinkStyled = styled(NavLink)`
+const LinkStyled = styled(Link)`
     padding: 10px 30px; color: ${props=> props.theme.colors.text2Color};
     font-size: 20px; transition: color ${props=> props.theme.colors.trans};
     &:hover { color: ${props=> props.theme.colors.textColor}; }
@@ -38,7 +40,7 @@ const CrossBtnStyled = styled.div`
     background: url(${closeBtn}) no-repeat center/75%;
     @media screen and (max-width: 767px){ display: inline-block; }`
 const MenuBtnStyled = styled.div`
-    display: none; position: absolute; top: 18px; right: 18px; padding: 5px;
+    display: none; position: fixed; top: 18px; right: 18px; padding: 5px;
     width: 30px; height: 30px; z-index: 1000; cursor: pointer;
     background: url(${topMenu}) no-repeat center/80%; 
     @media screen and (max-width: 767px){ display: block; }
@@ -48,7 +50,7 @@ const Header = ({ route, currentMenu, setIsMount, setCurrentMenu, theme }) => {
     
     const his = useHistory();
     const navUl = useRef(null);
-    const [isTopMenu, setIsTopMenu] = useState('');
+    const [isTopMenu, setIsTopMenu] = useState(''); //모바일 메뉴 Toggle
     
     const onClickTopMenu = () => {
         if(isTopMenu === ''){
@@ -67,8 +69,6 @@ const Header = ({ route, currentMenu, setIsMount, setCurrentMenu, theme }) => {
         setIsTopMenu('');
         navUl.current.childNodes.forEach((li, idx) => {
                 
-            li.children[0].classList.remove('active');
-
             if(li === e.target.parentElement){ //클릭한 메뉴 HTML 요소 검색
                 if(currentMenu !== idx){ //같은 메뉴를 안 눌렀을 때 실행                
                     if(currentMenu < idx){ //슬라이드 효과 방향 구분
@@ -82,16 +82,21 @@ const Header = ({ route, currentMenu, setIsMount, setCurrentMenu, theme }) => {
                 }
             }
         });
-        e.target.classList.add('active');        
     }
 
     useEffect(()=>{
-        route.map((v, idx) => {
+        route.map((v, idx) => { // TopMenu 클릭시 이동
             if(idx === currentMenu){
-                setTimeout(()=> { his.push(v.path); }, 300); //0.3s 이후에 주소 이동         
+                setTimeout(()=> { his.push(v.path); }, 300); //0.3s 이후에 주소 이동
             }
         });
-    }, [currentMenu])
+        navUl.current.childNodes.forEach((li, idx)=>{ // TopMenu 클릭시 active 클래스 토글
+            li.children[0].classList.remove('active');
+            if( idx === currentMenu){
+                li.children[0].classList.add('active');
+            }
+        });
+    }, [currentMenu]);
 
 
     return (
@@ -105,9 +110,9 @@ const Header = ({ route, currentMenu, setIsMount, setCurrentMenu, theme }) => {
                     {
                         route.map((v, idx) =>
                             <LiStyled key={v.title+idx}>
-                                <LavLinkStyled theme={theme} onClick={onClickNav} exact to={v.path}>
+                                <LinkStyled theme={theme} to={v.path} onClick={onClickNav}>
                                     {v.title}
-                                </LavLinkStyled>
+                                </LinkStyled>
                             </LiStyled>
                         )
                     }

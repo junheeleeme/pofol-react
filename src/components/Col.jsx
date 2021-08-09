@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 
 const ColStyled = styled.div`
-position: relative; display: inline-block; padding: 0 10px; width: 100%;
-@media screen and (max-width: 960px){ margin: 20px 0; }`
+position: relative; display: inline-block; padding: 20px 10px; width: 100%;
+@media screen and (max-width: 960px){  }`
 
-const Col = ({children, padding}) => {
+const Col = ({children}) => {
     return(
         <>
             <ColStyled>

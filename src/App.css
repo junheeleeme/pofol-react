@@ -20,6 +20,15 @@ ul{
 
 /*---------- Mount Effect ---------- */
 
+.fadeIn{ animation: 0.3s ease-in-out fadeInEffect; }
+@keyframes fadeInEffect {
+    0%{
+      opacity: 0; transform: translateX(50px); 
+    }
+    100%{
+      opacity: 1; transform: translateX(0px); 
+    }
+}
 
 .navMount{ animation: 0.7s ease-in-out navMountEffect; }
 @keyframes navMountEffect {
@@ -91,8 +100,8 @@ ul{
   }
 }
 
-.fadeIn{ animation: 0.3s ease-in-out fadeInEffect; }
-@keyframes fadeInEffect {
+.spinIn{ animation: 0.3s ease-in-out spinInEffect; }
+@keyframes spinInEffect {
     0%{
       opacity: 0;
       transform: translate(-50%, -50%) rotate(180deg);
@@ -103,8 +112,8 @@ ul{
     }
 }
 
-.fadeOut{ animation: 0.3s ease-in-out fadeOutEffect; }
-@keyframes fadeOutEffect {
+.spinOut{ animation: 0.3s ease-in-out spinOutEffect; }
+@keyframes spinOutEffect {
     0%{
       opacity: 1;
       transform: translate(-50%, -50%) rotate(0deg);
@@ -115,24 +124,6 @@ ul{
     }
 }
 
-/* ---------- common ---------- */
-
-
-@media screen and (max-width: 1080px){
-  .aboutWrap, .skillWrap, .pofolWrap, .contactWrap{
-    width: calc(100vw - 50px);
-    height: calc(100vh - 100px);
-    background-color: #d9d9d9;
-  }
-}
-
-@media screen and (max-width: 768px){
-  .aboutWrap, .skillWrap, .pofolWrap, .contactWrap{
-    width: calc(100% - 10px);
-    height: calc(100vh - 100px);
-    background-color: #d9d9d9;
-  }
-}
 
 /* ---------- home ---------- */
 
@@ -151,21 +142,3 @@ ul{
   }
   
 }
-
-/* ---------- intro ---------- */
-
-
-/* ---------- About ---------- */
-
-
-
-/* ---------- Skill ---------- */
-
-
-
-/* ---------- portfolio ---------- */
-
-
-
-/* ---------- contact ---------- */
-

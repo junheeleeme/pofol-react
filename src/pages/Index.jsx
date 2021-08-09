@@ -35,9 +35,9 @@ const Index = ({ isVisible, isMount, theme }) => {
 
     useEffect(()=>{
         if(isMount === 'unmountSlideLeft'){
-            setIsAni("fadeOut");
+            setIsAni("spinOut");
         }else{
-            setIsAni("fadeIn");
+            setIsAni("spinIn");
         }
     },[isMount])
 
@@ -48,15 +48,15 @@ const Index = ({ isVisible, isMount, theme }) => {
                 <section>
                 {
                     isVisible ? 
-                    <TyperWrap className={`${isAni}`} theme={theme}>
+                    <TyperWrap className={isAni} theme={theme}>
                         <Typewriter
                             options={{
                                 strings: ['﹤ PORTFOLIO／﹥', `﹤ I'm Front-End Developer／﹥`, `﹤ I'm Web Developer／﹥`],
                                 autoStart: true,
                                 loop: true,
                                 delay : 70,
-                                deleteSpeed : 35,
-                                pauseFor : 4000,
+                                deleteSpeed : 30,
+                                pauseFor : 3000,
                             }}
                         />
                     </TyperWrap>

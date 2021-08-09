@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { setIsVisible } from '../redux/index'
 import styled from 'styled-components'
-import Main from '../components/Main'
+import MainSlide from '../components/MainSlide'
 import SubTitle from '../components/SubTitle'
 import Row from '../components/Row'
 import ProfileImg from '../images/profile.jpg'
@@ -38,9 +38,9 @@ const Intro = ({theme}) => {
     return( //Main -> Container -> {children}
         <>
 
-            <Main>
+            <MainSlide>
                 <SubTitle>About</SubTitle>
-                <Row columns={[35, 65]}>
+                <Row columns={['35', '65']}>
                     <Col>
                         <ImgStyled/>
                     </Col>
@@ -55,7 +55,7 @@ const Intro = ({theme}) => {
                         </UlStyled>
                     </Col>
                 </Row>
-            </Main>
+            </MainSlide>
 
         </>
     )

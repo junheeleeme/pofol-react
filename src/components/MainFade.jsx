@@ -10,12 +10,12 @@ const MainStyled = styled.main`
     background: ${props=> props.theme.colors.bg2Color};
     max-width: 1080px; min-height: calc(100vh - 80px);
     padding: 0 30px;
-    transition: ${props=> props.theme.colors.trans};
+    transition: opacity ${props=> props.theme.colors.trans}, transform ${props=> props.theme.colors.trans};
 @media screen and (max-width: 1079px) { width: calc(100% - 40px); }
 @media screen and (max-width: 767px) { width: 100vw; min-height: 100vh; padding: 0 15px; }`
 
 
-const Main = ({isVisible, isMount, children}) => {
+const MainSlide = ({isVisible, isMount, children}) => {
 
     const [view, setView] = useState(false);
 
@@ -25,13 +25,13 @@ const Main = ({isVisible, isMount, children}) => {
         }else{
             setView(true);
         }
-    },[isVisible])
+    },[isVisible]);
 
     return(
         <>
             {
                 view ? 
-                <MainStyled className={isMount}>
+                <MainStyled className='fadeIn'>
                     <Container>
                         {children}
                     </Container>
@@ -47,4 +47,4 @@ const mapStateToProps = ({menu}) => ({
 
 const mapDispatchToProps = ({ setIsVisible });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(MainSlide);
