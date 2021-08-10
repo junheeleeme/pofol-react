@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import MainSlide from '../components/MainSlide';
 import SubTitle from '../components/SubTitle';
 import Row from '../components/Row';
@@ -13,7 +13,7 @@ const UlStyled = styled.ul`
 const LiStyled = styled.li`
     position: relative; font-size: 18px; line-height: 2; letter-spacing: 0.5px; color: ${props=>props.theme.colors.text2Color};
     @media screen and (max-width: 480px){ letter-spacing: -1px; font-size: 16px; line-height: 1.5; margin-bottom: 10px;}`
-const H3Styled = styled.h3`
+const H3Styled = styled.h2`
 position: relative; font-size: 21px; padding-left: 25px; margin-bottom: 15px; width: 800px;
 color: ${props=> props.theme.colors.textColor};
 &:after{ content: ''; position: absolute; top: 45%; left: 7px; transform: translate(0, -50%); width: 8px; height: 2px; 
@@ -32,11 +32,6 @@ height: 50px;
 @media screen and (max-width: 960px){ height: 30px; }`
 
 const Skill = () => {
-
-
-    useEffect(()=> { 
-        // axios.get('./portfolio.json').then(res=> console.log(res)).catch(err=> console.log(err)); 
-    }, []);
 
 
     return( //Main -> Container -> {children}

@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components';
 
 const RowStyled = styled.div`
-padding: 25px 0px; width: 100%; display: inline-grid; position: relative;
+margin: 25px 0px; width: 100%; display: inline-grid; position: relative;
 grid-template-columns: ${props=> props.columns[0]}% ${props=> props.columns[1]}%;
 @media screen and (max-width: 960px){
-    grid-template-columns: 100%; padding: 10px 10px;
+    grid-template-columns: 100%; margin: 10px auto;
 }`
 
 const Row = ({children, columns}) => {

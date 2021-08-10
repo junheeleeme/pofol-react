@@ -7,12 +7,21 @@ const pofol = require('./portfolio.json');
 const cors = require('cors')
 
 app.use(cors());
+app.use(express.static(path.join(__dirname, '/')));
+
+
+
+app.get('/pofofllist', (req, res) => {
+    // res.sendFile(path.join(__dirname, './index.html'));
+    res.json(pofol);
+});
 
 app.get('/', (req, res) => {
-    // res.sendFile(path.join(__dirname, './index.html'));
-    console.log(req.header)    
-    res.json(pofol);
-})
+    console.log(__dirname);
+    res.sendFile(path.join(__dirname, './build/index.html'));
+    
+});
+
 
 // app.get('/about', (req, res) => { res.sendFile(path.join(__dirname, './build/index.html')); });
 // app.get('/skill', (req, res) => { res.sendFile(path.join(__dirname, './build/index.html')); });

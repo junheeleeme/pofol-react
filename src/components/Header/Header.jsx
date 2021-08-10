@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState, useRef } from 'react'
+import React, { memo, useLayoutEffect, useEffect, useState, useRef } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setIsMount, setCurrentMenu } from '../../redux/index'
@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import ThemeToggle from '../Header/ThemeToggle'
 import closeBtn from '../../images/closeBtn.png'
 import topMenu from '../../images/menu.png'
+
 
 const HeaderStyled = styled.header`
     height: 80px; display: block;
@@ -22,7 +23,7 @@ const NavStyled = styled.nav`
     @media screen and (max-width: 767px){ padding-top: 70px; }`
 const UlStyled = styled.ul`
     display: inline-block;
-    line-height: 80px;
+    line-height: 70px;
     text-align: center;
     @media screen and (max-width: 767px){ width: 100%; line-height: initialpx; }`
 const LiStyled = styled.li`
@@ -49,9 +50,47 @@ const MenuBtnStyled = styled.div`
 const Header = ({ route, currentMenu, setIsMount, setCurrentMenu, theme }) => {
     
     const his = useHistory();
+    const { location } = useHistory();
     const navUl = useRef(null);
     const [isTopMenu, setIsTopMenu] = useState(''); //모바일 메뉴 Toggle
     
+    useEffect(()=> {
+        
+        const pathIdx = location.pathname.indexOf('/', 1);
+        const path = pathIdx === -1 ? location.pathname : location.pathname.slice(0, pathIdx); 
+        
+        route.map((v, idx)=>{
+
+            if(v.path === path){
+
+                navUl.current.childNodes.forEach((li, navIdx)=>{ // 첫 로딩 했을 때, 현재 위치 TopMenu active 클래스 토글
+                    if( navIdx === idx){
+                        li.children[0].classList.add('active');
+                    }
+                });
+                
+            }
+        });
+    }, [])
+
+
+    useLayoutEffect(()=>{
+        
+        route.map((v, idx) => { // TopMenu 클릭시 이동
+            if(idx === currentMenu){
+                setTimeout(()=> { his.push(v.path); }, 300); //0.3s 이후에 주소 이동
+            }
+        });
+        
+        navUl.current.childNodes.forEach((li, idx)=>{ // TopMenu 클릭시 active 클래스 토글
+            li.children[0].classList.remove('active');
+            if( idx === currentMenu){
+                li.children[0].classList.add('active');
+            }
+        });
+    }, [currentMenu]);
+
+
     const onClickTopMenu = () => {
         if(isTopMenu === ''){
             setIsTopMenu('on');
@@ -70,7 +109,7 @@ const Header = ({ route, currentMenu, setIsMount, setCurrentMenu, theme }) => {
         navUl.current.childNodes.forEach((li, idx) => {
                 
             if(li === e.target.parentElement){ //클릭한 메뉴 HTML 요소 검색
-                if(currentMenu !== idx){ //같은 메뉴를 안 눌렀을 때 실행                
+                // if(currentMenu !== idx){ //같은 메뉴를 안 눌렀을 때 실행                
                     if(currentMenu < idx){ //슬라이드 효과 방향 구분
                         setIsMount("unmountSlideLeft");
                         setTimeout(()=> { setIsMount("mountSlideLeft"); }, 300);
@@ -79,24 +118,10 @@ const Header = ({ route, currentMenu, setIsMount, setCurrentMenu, theme }) => {
                         setTimeout(()=> { setIsMount("mountSlideRight"); }, 300);
                     }
                     setCurrentMenu(idx); //현재 메뉴 위치 0 -> ~ -> 4
-                }
+                // }
             }
         });
     }
-
-    useEffect(()=>{
-        route.map((v, idx) => { // TopMenu 클릭시 이동
-            if(idx === currentMenu){
-                setTimeout(()=> { his.push(v.path); }, 300); //0.3s 이후에 주소 이동
-            }
-        });
-        navUl.current.childNodes.forEach((li, idx)=>{ // TopMenu 클릭시 active 클래스 토글
-            li.children[0].classList.remove('active');
-            if( idx === currentMenu){
-                li.children[0].classList.add('active');
-            }
-        });
-    }, [currentMenu]);
 
 
     return (

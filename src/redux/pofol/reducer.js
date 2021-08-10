@@ -1,6 +1,4 @@
 // types.js -> reducer.js -> rootReducer.js
-
-import LoadEffect from "../../components/LoadEffect";
 import { SET_PORTFOLIO } from "./types";
 
 const initialState = {

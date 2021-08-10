@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import Typewriter from 'typewriter-effect';
 import { connect } from 'react-redux';
 import { setIsVisible } from '../redux/index'
@@ -33,7 +33,7 @@ const Index = ({ isVisible, isMount, theme }) => {
 
     const [isAni, setIsAni] = useState('');
 
-    useEffect(()=>{
+    useLayoutEffect(()=>{
         if(isMount === 'unmountSlideLeft'){
             setIsAni("spinOut");
         }else{

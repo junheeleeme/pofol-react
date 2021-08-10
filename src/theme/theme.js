@@ -4,7 +4,7 @@ export const dark = {
         textColor : '#fff',
         text2Color : '#d9d9d9',
         text3Color : '#a3a3a3',
-        bg2Color: '#0e0e0f',
+        bg2Color: '#212124',
         bg3Color : '#242526',
         trans: '1s ease-in-out' 
     }

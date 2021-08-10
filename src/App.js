@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { ThemeProvider } from "styled-components"
 import styled from 'styled-components'
@@ -31,15 +31,15 @@ const App = ({ theme, setThemeMode, isVisible, setIsVisible, setPorfol }) => {
   const [isLoad, setIsLoad] = useState(false);
 
 
-  useEffect(() => {
+  useLayoutEffect(() => {
 
-    axios.get('http://localhost:8080')
+    axios.get('http://localhost:8080/pofofllist')
     .then(res => {
         setPorfol(res.data);
         setIsLoad(true);
     })
     .catch(err=> console.log(err));
-
+    // setIsLoad(true);
     /* 컬러 모드 */
     const saveColorMode = localStorage.getItem("colorMode");
 

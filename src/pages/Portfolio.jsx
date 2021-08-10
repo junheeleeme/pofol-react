@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import MainSlide from '../components/MainSlide'
@@ -9,14 +9,24 @@ import Cards from '../components/Cards'
 import PofolDetail from './PofolDetail'
 import styled from 'styled-components'
 
-
 const LinkStyled = styled(Link)`
-display: inline-block; width: 100%; height: 100%;`
+position: relative; display: inline-block; width: 100%; height: 100%; overflow: hidden;
+&:hover .hover{ left : 0 !important; }`
+const ThumbStyled = styled.img`
+position: relative; width: 100%; height: 100%;`
+
+const ThumbHoverStyled = styled.div`
+position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background-color: rgba(0,0,0, 0.5);
+transition: 0.3s ease; z-index: 100;`
+
+const ThumbTitle = styled.p`
+position: absolute; top: 20px; left: 20px;
+font-size: 25px; color: ${props=> props.theme.colors.bgColor}; font-weight: bold;`
+
 
 
 const Portfolio = ({pofol}) => {
 
-    console.log(pofol)
 
     return(
         <>
@@ -31,7 +41,12 @@ const Portfolio = ({pofol}) => {
                                         
                                             <Cards>
                                                 <LinkStyled to={`/portfolio/${idx+1}`}>
-                                                    {po.title}
+                                                    <ThumbStyled src={`http://localhost:8080/img/${po.title}_cover.png`}/>
+                                                    
+                                                        <ThumbHoverStyled className="hover">
+                                                            <ThumbTitle>{po.title}</ThumbTitle>
+                                                        </ThumbHoverStyled>
+                                                    
                                                 </LinkStyled>
                                             </Cards>
                                         
