@@ -5,8 +5,9 @@ import MainSlide from '../components/MainSlide'
 import SubTitle from '../components/SubTitle'
 import Row from '../components/Row'
 import Col from '../components/Col'
-import Cards from '../components/Cards'
+import Cards from '../components/portfolio/Cards'
 import PofolDetail from './PofolDetail'
+import ListImgCover from '../components/portfolio/ListImgCover'
 import styled from 'styled-components'
 
 const LinkStyled = styled(Link)`
@@ -21,8 +22,7 @@ transition: 0.3s ease; z-index: 100;`
 
 const ThumbTitle = styled.p`
 position: absolute; top: 20px; left: 20px;
-font-size: 25px; color: ${props=> props.theme.colors.bgColor}; font-weight: bold;`
-
+font-size: 25px; color: #fff; font-weight: bold; z-index: 900;`
 
 
 const Portfolio = ({pofol}) => {
@@ -39,9 +39,10 @@ const Portfolio = ({pofol}) => {
                                     pofol.map((po, idx) => 
                                     <Col  key={po.title + idx+1}>
                                         
-                                            <Cards>
+                                            <Cards>                                            
                                                 <LinkStyled to={`/portfolio/${idx+1}`}>
-                                                    <ThumbStyled src={`http://localhost:8080/img/${po.title}_cover.png`}/>
+                                                        <ListImgCover/>
+                                                        <ThumbStyled src={`http://localhost:8080/img/${po.title}_cover.png`}/>
                                                     
                                                         <ThumbHoverStyled className="hover">
                                                             <ThumbTitle>{po.title}</ThumbTitle>

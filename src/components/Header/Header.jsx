@@ -9,7 +9,7 @@ import topMenu from '../../images/menu.png'
 
 
 const HeaderStyled = styled.header`
-    height: 80px; display: block;
+    height: 80px; display: block; z-index: 9999;
     @media screen and (max-width: 767px){ 
     position: fixed; top: 0; right: -280px;
     width: 280px; height: 100%; z-index: 1100; transition: 0.3s ease-in-out;
