@@ -43,17 +43,17 @@ const Skill = () => {
                 <Row columns={['100', '100']}>
                     <Col>
                         <H3Styled>주사용 기술</H3Styled>
-                        <PStyled>React, Vanila JavaScript, Redux, RestAPI, HTML/CSS, Node.js Express</PStyled>
+                        <PStyled>React, Vanila JavaScript, JQuery, HTML/CSS, Axios/Fetch API, Redux, Express</PStyled>
                         <BlankStyled/>
                         <H3Styled>사용해본적 있는 기술</H3Styled>
-                        <PStyled>React, Vanila JavaScript, RestAPI, HTML/CSS, Node.js Express</PStyled>
+                        <PStyled>Next.js, </PStyled>
                     </Col>
                 </Row>
                 <Row columns={['100', '100']}>
                     <Col>
                         <UlStyled>
-                            <LiStyled>HTML과 CSS로 주어진 디자인 레이아웃에 따라 웹을 디자인할 수 있습니다.</LiStyled>
-                            <LiStyled>웹표준 / 웹 접근성 및 SEO를 고려한 시멘틱 마크업 작업이 가능합니다.</LiStyled>
+                            <LiStyled>웹표준, 웹 접근성 및 SEO를 고려한 시멘틱 마크업 작업이 가능합니다.</LiStyled>
+                            <LiStyled>HTML과 CSS로 주어진 디자인 레이아웃에 따라 웹을 디자인할 수 있습니다.</LiStyled> 
                             <LiStyled>CSS Media Query를 사용하여 반응형 웹을 만들 수 있습니다.</LiStyled>
                             <LiStyled>Vanila JS와 제이쿼리를 사용하여 DOM 객체를 제어할 수 있습니다.</LiStyled>
                             <LiStyled>AWS EC2, MySQL/MongoDB와 Express를 연동하여 클라이언트와 서버를 구성 할 수 있습니다.</LiStyled>
