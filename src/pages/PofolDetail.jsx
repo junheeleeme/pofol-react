@@ -32,7 +32,7 @@ const RightBtnStyled = styled.a`
 display: inline-block; float: right; width: 49%; height: 45px; line-height: 45px; text-align: center;
 background: ${props=> props.theme.colors.bgColor}; color: ${props=> props.theme.colors.textColor};`
 const PStyled = styled.p`
-font-size: 19px; line-height: 25px; color: ${props=> props.theme.colors.text2Color};`
+font-size: 19px; line-height: 27px; color: ${props=> props.theme.colors.text2Color};`
 
 const PofoleDetail = ({pofol}) => {
     

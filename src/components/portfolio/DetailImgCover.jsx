@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 
 const FrameStyled = styled.div`
-position: relative; margin: 0 0 20px 0 ;
+position: relative; margin: 0 0 30px 0 ;
 @media screen and (max-width: 767px) { left: 0; transform: none; width: 100%; }`
 const CoverStyled = styled.div`
 position: absolute; top: 0; left: 0; width: 100%; height: 99.5%;
