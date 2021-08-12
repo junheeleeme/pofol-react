@@ -7,7 +7,6 @@ import ThemeToggle from '../Header/ThemeToggle'
 import closeBtn from '../../images/closeBtn.png'
 import topMenu from '../../images/menu.png'
 
-
 const HeaderStyled = styled.header`
     height: 80px; display: block; z-index: 9999;
     @media screen and (max-width: 767px){ 
@@ -34,6 +33,7 @@ const LinkStyled = styled(Link)`
     font-size: 20px; transition: color ${props=> props.theme.colors.trans};
     &:hover { color: ${props=> props.theme.colors.textColor}; }
     &.active{ font-weight: bold; color: ${props=> props.theme.colors.textColor}; }
+    @media screen and (max-width: 1080px){ padding: 10px 20px; }
     @media screen and (max-width: 767px){ display: inline-block; font-size: 18px; width: 100%; padding: 0; }`
 const CrossBtnStyled = styled.div`
     display: none; position: absolute; top: 18px; left: 18px;
@@ -47,7 +47,7 @@ const MenuBtnStyled = styled.div`
     @media screen and (max-width: 767px){ display: block; }
 `
 
-const Header = ({ route, currentMenu, setIsMount, setCurrentMenu, theme }) => {
+const Header = ({ route, currentMenu, setIsMount, setCurrentMenu, theme, themeMode}) => {
     
     const his = useHistory();
     const { location } = useHistory();
@@ -71,7 +71,7 @@ const Header = ({ route, currentMenu, setIsMount, setCurrentMenu, theme }) => {
                 
             }
         });
-    }, [])
+    }, [themeMode],[])
 
 
     useLayoutEffect(()=>{
@@ -151,9 +151,10 @@ const Header = ({ route, currentMenu, setIsMount, setCurrentMenu, theme }) => {
     )
 }
 
-const mapStateToProps = ({menu}) => ({
+const mapStateToProps = ({menu, theme}) => ({
     route : menu.route,
-    currentMenu : menu.currentMenu
+    currentMenu : menu.currentMenu,
+    themeMode : theme.themeMode
 })
 
 const mapDispatchToProps = ({ setIsMount, setCurrentMenu })
