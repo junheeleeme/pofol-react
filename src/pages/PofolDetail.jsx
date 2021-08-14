@@ -23,7 +23,7 @@ color: ${props=> props.theme.colors.textColor};`
 const UlStyled = styled.ul`
 list-style: circle; padding-left: 20px; margin: 20px 0 30px 0;`
 const LiStyled = styled.li`
-line-height: 24px;`
+font-size: 17px; line-height: 1.75em; color: ${props=> props.theme.colors.textColor};`
 const LeftBtnStyled = styled.a`
 display: inline-block; float:left; width: 49%; height: 45px; line-height: 45px; text-align: center;
 background: ${props=> props.theme.colors.bgColor}; color: ${props=> props.theme.colors.textColor};`
@@ -67,7 +67,7 @@ const PofoleDetail = ({pofol}) => {
                                 <UlStyled>
                                     {
                                         pofol[idx].skills.map((v, idx) => 
-                                            <LiStyled key={v+idx}><PStyled>{v}</PStyled></LiStyled>
+                                            <LiStyled key={v+idx}>{v}</LiStyled>
                                         )
                                     }
                                 </UlStyled>
