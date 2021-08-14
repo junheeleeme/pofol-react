@@ -23,7 +23,7 @@ background: ${props=> props.theme.colors.textColor}; }
     font-size: 18px; padding-left: 5px; 
     &:after{ left: -12px;} }`
 const PStyled = styled.p`
-font-size: 18px; padding-left: 25px; width: 800px; letter-spacing: 0.5px;
+font-size: 18px; padding-left: 25px; line-height: 1.4em; width: 800px; letter-spacing: 0.5px;
 color: ${props=> props.theme.colors.text2Color};
 @media screen and (max-width: 960px){ width: 100%; }
 @media screen and (max-width: 480px){ padding-left: 5px; }`
@@ -43,7 +43,7 @@ const Skill = () => {
                 <Row columns={['100', '100']}>
                     <Col>
                         <H3Styled>주사용 기술</H3Styled>
-                        <PStyled>React, Vanila JavaScript, JQuery, HTML/CSS, Axios/Fetch API, Express</PStyled>
+                        <PStyled>React(Functional Component), JavaScript, JQuery, HTML/CSS, Axios/Fetch API, Express</PStyled>
                         <BlankStyled/>
                         <H3Styled>사용해본적 있는 기술</H3Styled>
                         <PStyled>AWS, Next.js, Redux, Styled Component</PStyled>

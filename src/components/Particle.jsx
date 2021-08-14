@@ -9,7 +9,7 @@ const ParticlesStyled = styled(Particles)`
     height: 100%;
     z-index: -999;
     background-color: ${props => props.theme.colors.bgColor};
-    transition: ${props=> props.theme.colors.trans};
+    transition: background ${props=> props.theme.colors.trans};
 `
 
 const Particle = ({ theme }) => {
@@ -20,7 +20,7 @@ const Particle = ({ theme }) => {
                 params={{
                     "particles": {
                     "number": {
-                        "value": 180,
+                        "value": 200,
                         "density": {
                             "enable": true,
                             "value_area": 1500
@@ -33,7 +33,6 @@ const Particle = ({ theme }) => {
                         "type" : "circle",
                         "stroke" : {
                             "width" : 0,
-                            "color" : "#000000"
                         },
                         "polygon" : {"nb_sides" : 5}
                     },
@@ -41,7 +40,7 @@ const Particle = ({ theme }) => {
                         "enable": false,
                     },
                     "move": {
-                        "speed": 0.3
+                        "speed": 0.5
                     },
                     "size": {
                         "value": 1.5

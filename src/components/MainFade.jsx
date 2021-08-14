@@ -12,14 +12,13 @@ const MainStyled = styled.main`
     padding: 0 30px;
     transition: opacity ${props=> props.theme.colors.trans}, transform ${props=> props.theme.colors.trans}, background-color ${props=> props.theme.colors.trans};
 @media screen and (max-width: 1079px) { width: calc(100% - 40px); }
-@media screen and (max-width: 767px) { width: 100vw; min-height: 100vh; padding: 0 15px; }`
+@media screen and (max-width: 768px) { width: 100vw; min-height: 100vh; padding: 0 15px; }`
 
 
 const MainSlide = ({isVisible, children}) => {
 
     const [view, setView] = useState(false);
     
-
     useLayoutEffect(()=>{         
         if(!isVisible){
             setTimeout(()=>{ setView(true); }, 2000);
@@ -31,13 +30,16 @@ const MainSlide = ({isVisible, children}) => {
     return(
         <>
             {
-                view ? 
+                view 
+                    ? 
                 <MainStyled className='fadeIn'>
                     <BackButton/>
                     <Container>
                         {children}
                     </Container>
-                </MainStyled> : <></>
+                </MainStyled> 
+                    :
+                <></>
             }
         </>
     )

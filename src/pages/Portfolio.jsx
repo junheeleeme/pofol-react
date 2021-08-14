@@ -17,12 +17,16 @@ const ThumbStyled = styled.img`
 position: relative; width: 100%; height: 100%;`
 
 const ThumbHoverStyled = styled.div`
-position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background-color: rgba(0,0,0, 0.5);
-transition: 0.3s ease; z-index: 100;`
+position: absolute; top: 0; padding: 25px; left: -100%; width: 100%; height: 100%; background-color: rgba(0,0,0, 0.5);
+transition: 0.3s ease; z-index: 100;
+@media screen and (max-width: 960px){ padding: 30px; }
+@media screen and (max-width: 480px){ padding: 22px; }`
 
 const ThumbTitle = styled.p`
-position: absolute; top: 20px; left: 20px;
-font-size: 25px; color: #fff; font-weight: bold; z-index: 900;`
+font-size: 25px; color: #fff; font-weight: bold; z-index: 900;
+@media screen and (max-width: 960px){ font-size: 30px; }
+@media screen and (max-width: 768px){ font-size: 35px; }
+@media screen and (max-width: 480px){ font-size: 27px; }`
 
 
 const Portfolio = ({pofol}) => {

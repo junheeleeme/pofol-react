@@ -9,42 +9,42 @@ import topMenu from '../../images/menu.png'
 
 const HeaderStyled = styled.header`
     height: 80px; display: block; z-index: 9999;
-    @media screen and (max-width: 767px){ 
+    @media screen and (max-width: 768px){ 
     position: fixed; top: 0; right: -280px;
     width: 280px; height: 100%; z-index: 1100; transition: 0.3s ease-in-out;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     background: ${props=> props.theme.colors.bg3Color}; }
     &.on{ 
-        @media screen and (max-width: 767px){ right: 0px; };
+        @media screen and (max-width: 768px){ right: 0px; };
     }`
 const NavStyled = styled.nav`
     position: relative; max-width: 1080px; text-align: center;
-    @media screen and (max-width: 767px){ padding-top: 70px; }`
+    @media screen and (max-width: 768px){ padding-top: 70px; }`
 const UlStyled = styled.ul`
     display: inline-block;
     line-height: 70px;
     text-align: center;
-    @media screen and (max-width: 767px){ width: 100%; line-height: initialpx; }`
+    @media screen and (max-width: 768px){ width: 100%; line-height: initialpx; }`
 const LiStyled = styled.li`
     display: inline-block;
-    @media screen and (max-width: 767px){ display: block; width: 100%; height: 70px; }`
+    @media screen and (max-width: 768px){ display: block; width: 100%; height: 70px; }`
 const LinkStyled = styled(Link)`
     padding: 10px 30px; color: ${props=> props.theme.colors.text2Color};
     font-size: 20px; transition: color ${props=> props.theme.colors.trans};
     &:hover { color: ${props=> props.theme.colors.textColor}; }
     &.active{ font-weight: bold; color: ${props=> props.theme.colors.textColor}; }
     @media screen and (max-width: 1080px){ padding: 10px 20px; }
-    @media screen and (max-width: 767px){ display: inline-block; font-size: 18px; width: 100%; padding: 0; }`
+    @media screen and (max-width: 768px){ display: inline-block; font-size: 18px; width: 100%; padding: 0; }`
 const CrossBtnStyled = styled.div`
     display: none; position: absolute; top: 18px; left: 18px;
     width: 33px; height: 33px; padding: 5px; cursor: pointer;
     background: url(${closeBtn}) no-repeat center/75%;
-    @media screen and (max-width: 767px){ display: inline-block; }`
+    @media screen and (max-width: 768px){ display: inline-block; }`
 const MenuBtnStyled = styled.div`
     display: none; position: fixed; top: 18px; right: 18px; padding: 5px;
     width: 30px; height: 30px; z-index: 1000; cursor: pointer;
     background: url(${topMenu}) no-repeat center/80%; 
-    @media screen and (max-width: 767px){ display: block; }
+    @media screen and (max-width: 768px){ display: block; }
 `
 
 const Header = ({ route, currentMenu, setIsMount, setCurrentMenu, theme, themeMode}) => {

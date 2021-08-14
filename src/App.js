@@ -34,11 +34,11 @@ const App = ({ theme, setThemeMode, isVisible, setIsVisible, setPorfol }) => {
   useLayoutEffect(() => {
 
     axios.get('http://localhost:8080/pofofllist')
-    .then(res => {
-        setPorfol(res.data);
-        setIsLoad(true);
-    })
-    .catch(err=> console.log(err));
+      .then(res => {
+          setPorfol(res.data);
+          setIsLoad(true);
+      })
+      .catch(err=> console.log(err));
     // setIsLoad(true);
     /* 컬러 모드 */
     const saveColorMode = localStorage.getItem("colorMode");
@@ -59,17 +59,6 @@ const App = ({ theme, setThemeMode, isVisible, setIsVisible, setPorfol }) => {
       default:
         break;
     }
-  
-    // /* 현재 TopMenu 찾기 */
-    // const pathIdx = pathname.indexOf('/', 1);
-    // const path = pathIdx === -1 ? pathname : pathname.slice(0, pathIdx);
-    // // URL 1dept 구분을 위해 '/' 뒷 주소 제거 
-  
-    // // route.map((v, idx) => {
-    // //   if(v.path === path){ 
-    // //     setCurrentMenu(idx);
-    // //   }
-    // // });
 
     if(!isVisible){ //isVisible = true 이면 Particle로딩 완료
       setTimeout(()=>{ setIsHeader(true); }, 1200);
@@ -83,8 +72,10 @@ const App = ({ theme, setThemeMode, isVisible, setIsVisible, setPorfol }) => {
   const choosePage = () => {
 
       const pathIdx = pathname.indexOf('/', 1);
-      const path = pathIdx === -1 ? pathname : pathname.slice(0, pathIdx); 
-      // URL 1dept 구분을 위해 '/' 뒷 주소 제거 
+      
+      const _path = pathIdx === -1 ? pathname : pathname.slice(0, pathIdx); 
+      const path = _path === '/portfolio' ?  pathname.substr(0, 10) : pathname;
+      // URL 1dept 구분을 위해 '/' 뒷 주소 제거 (portfolio 제외) 
 
       switch (path) {
         case '/' : return <Index/>
@@ -122,7 +113,6 @@ const mapStateToProps = ({ menu, theme }) => ({
   themeMode : theme.themeMode,
   theme : theme.theme
 });
-
 
 const mapDispatchToProps = ({ setIsVisible, setCurrentMenu, setThemeMode, setPorfol });
 

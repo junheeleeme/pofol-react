@@ -5,7 +5,7 @@ import { useHistory } from 'react-router'
 
 const BackBtnWrapStyled = styled.div`
 position: absolute; top: 40px; right: 30px; width: 40px; height: 40px; cursor: pointer; z-index: 9999;
-@media screen and (max-width: 767px) { position: fixed; top: auto; bottom: 30px; right: 20px; }
+@media screen and (max-width: 768px) { position: fixed; top: auto; bottom: 30px; right: 20px; }
 `
 const SpanStyled = styled.span`
 position: absolute; top: 50%; left: 4px; transform: translate(0, -50%);

@@ -7,14 +7,15 @@ import SubTitle from '../components/SubTitle'
 import Row from '../components/Row'
 import ProfileImg from '../images/profile.jpg'
 import Col from '../components/Col'
+import Ani from '../components/About/Ani'
 
 const ImgStyled = styled.div`
-    display: inline-block; width: 280px; height: 280px; border-radius: 50%; margin-left: 30px;
-    @media screen and (max-width: 767px) { margin-left: 40px;  }
+    display: inline-block; width: 260px; height: 260px; border-radius: 50%; margin-left: 30px;
+    @media screen and (max-width: 768px) { margin-left: 40px;  }
     @media screen and (max-width: 480px) { width: 260px; height: 260px; margin-left: 0px; float: right;  }
     background: url(${ProfileImg}) no-repeat center/100%;`
 const H3Styled = styled.h3`
-font-size: 25px; margin: 13px 0 40px 0; font-weight: 600; letter-spacing: -1px;
+font-size: 25px; margin: 10px 0 30px 0; font-weight: 600; letter-spacing: -1px;
 color: ${props=> props.theme.colors.text2Color};
 @media screen and (max-width: 960px){ font-size: 23px; text-align: right; }
 
@@ -55,6 +56,7 @@ const Intro = ({theme}) => {
                         </UlStyled>
                     </Col>
                 </Row>
+                <Ani/>
             </MainSlide>
 
         </>

@@ -14,7 +14,7 @@ const ButtonStyled = styled.button`
     border-radius: 20px;
     cursor : pointer;
     padding: 4px;
-    @media screen and (max-width: 767px){
+    @media screen and (max-width: 768px){
         top: 20px; right: 20px;
         transform: translate(0, 0);
     }

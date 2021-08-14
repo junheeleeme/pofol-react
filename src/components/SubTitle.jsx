@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 const WrapStyled = styled.div`
-    width: 100%; margin-bottom: 40px;
+    width: 100%; margin-bottom: 30px;
 `
 const SubTitleStyled = styled.h1`
     position: relative; font-size: 35px; color: ${props=> props.theme.colors.textColor};

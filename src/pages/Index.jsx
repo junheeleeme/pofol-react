@@ -9,7 +9,7 @@ const IntroStyled = styled.main`
     top: 0; left: 0;
     width: 100vw;
     min-height: calc(100vh - 80px);
-    @media screen and (max-width: 767px) { min-height: 100vh; }
+    @media screen and (max-width: 768px) { min-height: 100vh; }
 `
 const TyperWrap = styled.div`
     position: absolute;
@@ -25,7 +25,7 @@ const TyperWrap = styled.div`
             color: ${props => props.theme.colors.textColor};
             font-size: 70px;
         }
-    @media screen and (max-width: 767px) { top: 48%; letter-spacing: -1px; }
+    @media screen and (max-width: 768px) { top: 48%; letter-spacing: -1px; }
     @supports (-webkit-touch-callout: none) { top: 42% !important; };
 `
 
