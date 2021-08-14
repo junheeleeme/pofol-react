@@ -10,7 +10,7 @@ display: inline-block; position: absolute; width: 170px; height: 200px; border-l
 background: #0F52BA; }
 
 top: -300px; right: 180px; transform: rotate(-18deg);
-animation: HAlpabetEffect 1s 1s ease-in forwards;
+animation: HAlpabetEffect 0.8s 1s ease-in forwards;
 
 @keyframes HAlpabetEffect{
     0%{ top: -300px; right: 180px; transform: rotate(-12deg); }
@@ -26,7 +26,7 @@ position: absolute; display: inline-block; width: 40px;  height: 200px; backgrou
 &:before{ content: ''; position: absolute; bottom: 0; left: 50%; width: 80px; height: 35px; transform: translate(-50%, 0); background: #0F52BA; }
 
 top: -300px; right: -200px; transform: rotate(-10deg);
-animation: IAlpabetEffect 1s 1s ease-in forwards;
+animation: IAlpabetEffect 0.9s 1s ease-in forwards;
 
 @keyframes IAlpabetEffect{
     0%{ top: -300px; right: 60px; }
