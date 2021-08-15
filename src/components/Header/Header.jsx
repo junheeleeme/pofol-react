@@ -6,22 +6,23 @@ import styled from 'styled-components'
 import ThemeToggle from '../Header/ThemeToggle'
 import CloseBtn from './CloseBtn'
 import MenuBtn from './MenuBtn'
+import Site from './Site'
 
 const HeaderStyled = styled.header`
     height: 80px; display: block; z-index: 9999;
     @media screen and (max-width: 768px){ 
     position: fixed; top: 0; right: -280px;
-    width: 280px; height: 100%; transition: 0.4s ease-in-out;
+    width: 280px; height: 100%; transition: background 0.4s ease-in-out;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     background: ${props=> props.theme.colors.bg3Color}; }
     &.on{ @media screen and (max-width: 768px){ right: 0px; }; }
     &.on ~ .bg{ left: 0; }`
 const NavStyled = styled.nav`
-    position: relative; max-width: 1080px; text-align: center;
+    position: relative; max-width: 1080px; height: 100%; text-align: center;
     @media screen and (max-width: 768px){ padding-top: 70px; }`
 const UlStyled = styled.ul`
     display: inline-block;
-    line-height: 70px;
+    line-height: 80px;
     text-align: center;
     @media screen and (max-width: 768px){ width: 100%; line-height: initialpx; }`
 const LiStyled = styled.li`
@@ -33,6 +34,7 @@ const LinkStyled = styled(Link)`
     &:hover { color: ${props=> props.theme.colors.textColor}; }
     &.active{ font-weight: bold; color: ${props=> props.theme.colors.textColor}; }
     @media screen and (max-width: 1080px){ padding: 10px 20px; }
+    @media screen and (max-width: 960px){ font-size: 19px; padding: 10px 17px;  }
     @media screen and (max-width: 768px){ display: inline-block; font-size: 18px; width: 100%; padding: 0; }`
 const CrossBtnStyled = styled.button`
     display: none; position: absolute; top: 18px; left: 18px; padding: 0;
@@ -149,9 +151,10 @@ const Header = ({ route, currentMenu, setIsMount, setCurrentMenu, theme, themeMo
                             )
                         }
                     </UlStyled>
+                    <Site/>
                     <ThemeToggle/>
                 </NavStyled>
-
+                
                 <CrossBtnStyled onClick={onClickCrossBtn}>
                     <CloseBtn/>
                 </CrossBtnStyled>
