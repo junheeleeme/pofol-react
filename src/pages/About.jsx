@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { setIsVisible } from '../redux/index'
 import styled from 'styled-components'
@@ -19,8 +19,7 @@ const H3Styled = styled.h3`
     color: ${props=> props.theme.colors.text2Color};
     @media screen and (max-width: 960px){ font-size: 23px; text-align: right; margin: 50px 0 30px 0; }
     @media screen and (max-width: 480px){ font-size: 20px; text-align: left; margin: 20px 0 30px 0; }`
-const PStyled = styled.p`
-    font-size: 19px;`
+
 const UlStyled = styled.ul`
     padding-left: 20px; list-style: square;
     @media screen and (max-width: 960px){ display: inline-block; float: right; margin-left: 20%; }
@@ -29,8 +28,6 @@ const LiStyled = styled.li`
     position: relative; font-size: 20px; margin-bottom: 25px; color: ${props=> props.theme.colors.text2Color};
     letter-spacing: 0px;
     @media screen and (max-width: 480px){ font-size: 16px; }`
-const AStyled = styled.a`
-color: ${props=> props.theme.colors.text2Color}; `
 
 const Intro = ({theme}) => {
 

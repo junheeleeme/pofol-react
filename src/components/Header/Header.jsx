@@ -12,7 +12,7 @@ const HeaderStyled = styled.header`
     height: 80px; display: block; z-index: 9999;
     @media screen and (max-width: 768px){ 
     position: fixed; top: 0; right: -280px;
-    width: 280px; height: 100%; transition: background 0.4s ease-in-out;
+    width: 280px; height: 100%; transition: 0.4s ease-in-out;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     background: ${props=> props.theme.colors.bg3Color}; }
     &.on{ @media screen and (max-width: 768px){ right: 0px; }; }

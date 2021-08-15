@@ -2,9 +2,6 @@
   "name": "pofol-react",
   "version": "0.1.0",
   "private": true,
-  "proxy": [
-    "http://localhost:8080/"
-  ],
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -25,9 +22,9 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "NODE_PATH=src react-scripts start",
+    "build": "NODE_PATH=src react-scripts build",
+    "test": "NODE_PATH=src react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -48,6 +45,7 @@
       "last 1 safari version"
     ]
   },
+  "homepage": "./",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "devDependencies": {},

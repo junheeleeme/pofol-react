@@ -7,14 +7,21 @@ import styled from 'styled-components'
 const IntroStyled = styled.main`
     position: relative;
     top: 0; left: 0;
-    width: 100vw;
+    width: 100%;
     min-height: calc(100vh - 80px);
-    @media screen and (max-width: 768px) { min-height: 100vh; }
+    @supports (-webkit-touch-callout: none) { 
+        min-hieght: auto;
+        height: -webkit-fill-available;
+    }
+    @media screen and (max-width: 768px) { 
+        min-height: 100vh;
+    }
 `
 const TyperWrap = styled.div`
     position: absolute;
     top: 43%; left: 50%;
     transform: translate(-50%, -50%);
+    overflow: hidden;
     white-space: nowrap;
     user-select: none;
         .Typewriter__wrapper{
@@ -26,7 +33,6 @@ const TyperWrap = styled.div`
             font-size: 70px;
         }
     @media screen and (max-width: 768px) { top: 48%; letter-spacing: -1px; }
-    @supports (-webkit-touch-callout: none) { top: 42% !important; };
 `
 
 const Index = ({ isVisible, isMount, theme }) => {

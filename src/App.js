@@ -17,23 +17,18 @@ import { setIsVisible, setCurrentMenu, setThemeMode, setPorfol} from './redux/in
 import axios from 'axios'
 
 const Juni = styled.div`
-    position: relative;    
-    width: 100vw;
-    min-height: 100vh;
-    overflow-x: hidden;
-    background-color: transparent;
-    // @supports (-webkit-touch-callout: none) { height: -webkit-fill-available; };
-`
+    position: relative; background-color: transparent;
+    min-height: 100vh;`
+
 const App = ({ theme, setThemeMode, isVisible, setIsVisible, setPorfol }) => {
 
   const { pathname } = useLocation();
   const [isHeader, setIsHeader] = useState(false);
   const [isLoad, setIsLoad] = useState(false);
 
-
   useLayoutEffect(() => {
 
-    axios.get('http://localhost:8080/pofofllist')
+    axios.get('./pofofllist')
       .then(res => {
           setPorfol(res.data);
           setIsLoad(true);
@@ -101,7 +96,8 @@ const App = ({ theme, setThemeMode, isVisible, setIsVisible, setPorfol }) => {
                 { isHeader ? <Header/> : <></> }
                 { choosePage() }
           </Juni>
-        </ThemeProvider>        
+        </ThemeProvider>
+        
       }
     </>
   );

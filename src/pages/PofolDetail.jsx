@@ -13,10 +13,8 @@ import NotFound from './NotFound'
 const WrapStyled = styled.div`
 width: 80%; 
 @media screen and (max-width: 768px) { width: 100%; }`
-
 const ImgStyled = styled.img`
 width: 100%;`
-
 const H4Styled = styled.h4`
 font-size: 22px; margin: 40px 0 15px 0;
 color: ${props=> props.theme.colors.textColor};`
@@ -58,7 +56,7 @@ const PofoleDetail = ({pofol}) => {
                         <Col>
                             <WrapStyled>  
                                 <DetailImgCover>
-                                    <ImgStyled src={`http://localhost:8080/img/${pofol[idx].title}_play.gif`} alt={pofol[idx].title + ' image'} />
+                                    <ImgStyled src={`../images/${pofol[idx].title}_play.gif`} alt={pofol[idx].title + ' image'} />
                                 </DetailImgCover>
 
                                 <PStyled>{pofol[idx].content}</PStyled>     

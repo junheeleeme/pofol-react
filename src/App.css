@@ -6,13 +6,16 @@
   font-family: 'Roboto', sans-serif;
 }
 
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 a{
   text-decoration: none;
 }
 
-.juni{
-  position: relative;
-}
 ul{
     padding-left: 0;
     list-style: none;
@@ -45,10 +48,10 @@ ul{
 .bgMount{ animation: 1.7s ease-in-out bgMountEffect; }
 @keyframes bgMountEffect {
     0%{
-      transform: scale(2);
+      transform: translate(-50%, -50%) scale(2);
     }
     100%{
-        transform: scale(1.0);
+        transform: translate(-50%, -50%) scale(1.0);
     }
 }
 

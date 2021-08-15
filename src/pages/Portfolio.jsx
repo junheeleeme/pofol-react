@@ -46,7 +46,7 @@ const Portfolio = ({pofol}) => {
                                             <Cards>                                            
                                                 <LinkStyled to={`/portfolio/${idx+1}`}>
                                                         <ListImgCover/>
-                                                        <ThumbStyled src={`http://localhost:8080/img/${po.title}_cover.png`}/>
+                                                        <ThumbStyled src={`./images/${po.title}_cover.png`}/>
                                                     
                                                         <ThumbHoverStyled className="hover">
                                                             <ThumbTitle>{po.title}</ThumbTitle>
