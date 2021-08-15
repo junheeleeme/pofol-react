@@ -5,8 +5,8 @@ import styled from 'styled-components'
 const ParticlesStyled = styled(Particles)`
     position: fixed; top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
+    width: 101%;
+    height: 101%;
     z-index: -999;
     background-color: ${props => props.theme.colors.bgColor};
     transition: background ${props=> props.theme.colors.trans};

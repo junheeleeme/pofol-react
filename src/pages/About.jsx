@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { setIsVisible } from '../redux/index'
 import styled from 'styled-components'
@@ -30,6 +30,10 @@ const LiStyled = styled.li`
     @media screen and (max-width: 480px){ font-size: 16px; }`
 
 const Intro = ({theme}) => {
+
+    useEffect(()=>{
+        window.scrollTo({top: 0, behavior: 'auto'});
+    }, [])
 
     return( //Main -> Container -> {children}
         <>

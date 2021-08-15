@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import MainSlide from '../components/MainSlide';
 import SubTitle from '../components/SubTitle';
 import Row from '../components/Row';
@@ -33,6 +33,9 @@ height: 50px;
 
 const Skill = () => {
 
+    useEffect(()=>{
+        window.scrollTo({top: 0, behavior: 'auto'});
+    }, [])
 
     return( //Main -> Container -> {children}
         <>
