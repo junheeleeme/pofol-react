@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
@@ -8,6 +8,7 @@ import Col from '../components/Col'
 import Row from '../components/Row'
 import Cards from '../components/Portfolio/Cards'
 import ListImgCover from '../components/Portfolio/ListImgCover'
+import axios from 'axios'
 
 const LinkStyled = styled(Link)`
 position: relative; display: inline-block; width: 100%; height: 100%; overflow: hidden;
@@ -31,31 +32,32 @@ font-size: 25px; color: #fff; font-weight: bold;
 const Portfolio = ({pofol}) => {
 
     return(
-        <>
-            <MainSlide>
-                <SubTitle>Portfolio</SubTitle>
-                    <Row columns={['50', '50']}>
-                        {
-                            pofol.map((po, idx) => 
-                            <Col  key={po.title + idx+1}>
-                                <Cards>                                            
-                                    <LinkStyled to={`/portfolio/${idx+1}`}>
-                                            <ListImgCover/>
-                                            <ThumbStyled src={`./images/${po.title}_cover.png`}/>
-                                        
-                                            <ThumbHoverStyled className="hover">
-                                                <ThumbTitle>{po.title}</ThumbTitle>
-                                            </ThumbHoverStyled>
-                                        
-                                    </LinkStyled>
-                                </Cards>
-                            </Col>
-                            )
-                        }
-                    </Row>
-            </MainSlide>
-        </>
+    <>
+        <MainSlide>
+            <SubTitle>Portfolio</SubTitle>
+                <Row columns={['50', '50']}>
+                    {
+                        pofol.map((po, idx) => 
+                        <Col  key={po.title + idx+1}>
+                            <Cards>                                            
+                                <LinkStyled to={`/portfolio/${idx+1}`}>
+                                        <ListImgCover/>
+                                        <ThumbStyled src={`./images/${po.title}_cover.png`}/>
+                                    
+                                        <ThumbHoverStyled className="hover">
+                                            <ThumbTitle>{po.title}</ThumbTitle>
+                                        </ThumbHoverStyled>
+                                    
+                                </LinkStyled>
+                            </Cards>
+                        </Col>
+                        )
+                    }
+                </Row>
+        </MainSlide>
+    </>
     )
+
 }
 
 const mapStateToProps = ({pofol}) => ({
