@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLayoutEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { setIsVisible } from '../redux/index'
 import styled from 'styled-components'
@@ -19,7 +19,7 @@ const MainSlide = ({isVisible, children}) => {
 
     const [view, setView] = useState(false);
     
-    useLayoutEffect(()=>{         
+    useEffect(()=>{         
         if(!isVisible){
             setTimeout(()=>{ setView(true); }, 2000);
         }else{

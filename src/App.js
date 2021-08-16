@@ -17,6 +17,7 @@ import { connect } from 'react-redux'
 import { setIsVisible, setCurrentMenu, setThemeMode, setPofol} from './redux/index'
 import axios from 'axios'
 
+
 const Juni = styled.div`
     position: relative; background-color: transparent;
     min-height: 100vh;`
@@ -26,16 +27,23 @@ const App = ({ theme, setThemeMode, isVisible, setIsVisible, setPofol }) => {
   const [isHeader, setIsHeader] = useState(false);
   const [isLoad, setIsLoad] = useState(false);
   
+
   useEffect(() => {
-    
-    axios.get('./pofofllist')
-    // axios.get('http://localhost:8080/pofofllist')
-      .then(res => {
+      
+      axios({
+        method: 'get',
+        url : './portfolio.json',
+        // url : 'http://localhost:8080/portfolio.json',
+        responseType : 'json'
+      })
+      .then((res)=>{
         setPofol(res.data);
         setIsLoad(true);
       })
-      .catch(err=> console.log(err));
-    // setIsLoad(true);
+      .catch((err) => {
+        console.log(err);
+        setIsLoad(false);
+      })
 
     /* 컬러 모드 */
     const saveColorMode = localStorage.getItem("colorMode");

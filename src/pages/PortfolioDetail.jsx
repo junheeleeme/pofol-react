@@ -6,9 +6,11 @@ import Col from '../components/Col'
 import Row from '../components/Row'
 import H3Title from '../components/H3Title'
 import NotFound from './NotFound'
-import { connect } from 'react-redux'
-import { setCurrent } from '../redux'
 import DetailImgCover from '../components/Portfolio/DetailImgCover'
+import axios from 'axios'
+import { connect } from 'react-redux'
+import { setPofol } from '../redux'
+
 
 const WrapStyled = styled.div`
 width: 80%; 
@@ -33,19 +35,33 @@ font-size: 19px; line-height: 27px; color: ${props=> props.theme.colors.text2Col
 const SpanStyled = styled.span`
 display: inline-block; width: 8px;`
 
-const PortfolioDetail = ({pofol, currentPofol, setCurrent, match }) => {
+const PortfolioDetail = ({ match, pofol, setPofol }) => {
     
-    const [isLoad, setIstLoad] = useState(false);
+    const [isLoad, setIsLoad] = useState(false);
     const { params } = match;
+    const [current, setCurrent] = useState();
     
-    useEffect(()=>{
-        if( pofol.length >= Number(params.id)){
-            setCurrent(Number(params.id-1));
-            setIstLoad(true);
-        }else{
-            setIstLoad(false);
-        }        
+
+    useEffect(() => {
+    
+        axios({
+            method: 'get',
+            url : '../portfolio.json',
+            // url : 'http://localhost:8080/portfolio.json',
+            responseType : 'json'
+        })
+        .then((res)=>{
+            setCurrent(res.data[Number(params.id-1)]);
+            setPofol(res.data);
+            setIsLoad(true);
+        })
+        .catch((err) => {
+            console.log(err);
+            setIsLoad(false);
+        });
+
         window.scrollTo({top: 0, behavior: 'auto'});
+        
     }, []);
 
     return(
@@ -56,28 +72,28 @@ const PortfolioDetail = ({pofol, currentPofol, setCurrent, match }) => {
                 <MainFade>
                     <SubTitle>Portfolio</SubTitle>
 
-                    <H3Title>{currentPofol.title + ' (' + currentPofol.type + ')'}</H3Title>
+                    <H3Title>{current.title + ' (' + current.type + ')'}</H3Title>
 
                     <Row columns={[100, 100]}>    
                         <Col>
                             <WrapStyled>  
                                 <DetailImgCover>
-                                    <ImgStyled src={`../images/${currentPofol.title}_play.gif`} alt={currentPofol.title + ' image'} />
+                                    <ImgStyled src={`../images/${current.title}_play.gif`} alt={current.title + ' image'} />
                                 </DetailImgCover>
         
-                                <PStyled>{currentPofol.content}</PStyled>     
+                                <PStyled>{current.content}</PStyled>     
                                 <H4Styled>Skills</H4Styled>
         
                                 <UlStyled>
                                     {
-                                        currentPofol.skills.map((v, idx) => 
+                                        current.skills.map((v, idx) => 
                                             <LiStyled key={v+idx}>{v}</LiStyled>
                                         )
                                     }
                                 </UlStyled>
                                 <div>
-                                    <LeftBtnStyled href={currentPofol.link[0]} target="_blank">👨‍💻 Github</LeftBtnStyled>    
-                                    <RightBtnStyled href={currentPofol.link[1]} target="_blank">🖥️<SpanStyled/>View</RightBtnStyled>
+                                    <LeftBtnStyled href={current.link[0]} target="_blank">👨‍💻 Github</LeftBtnStyled>    
+                                    <RightBtnStyled href={current.link[1]} target="_blank">🖥️<SpanStyled/>View</RightBtnStyled>
                                 </div>
                             </WrapStyled>
                         </Col>
@@ -92,12 +108,10 @@ const PortfolioDetail = ({pofol, currentPofol, setCurrent, match }) => {
     )
 }
 
+const mapStateToProps = ({pofol}) => ({
+    pofol : pofol.pofol
+})
 
-const mapStateToProps =({pofol}) => ({
-    pofol : pofol.pofol,
-    currentPofol : pofol.currentPofol
-});
-
-const mapDispatchToProps = ({ setCurrent });
+const mapDispatchToProps = ({ setPofol });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PortfolioDetail);
