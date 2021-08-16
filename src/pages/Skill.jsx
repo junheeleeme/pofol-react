@@ -25,8 +25,8 @@ background: ${props=> props.theme.colors.textColor}; }
 const PStyled = styled.p`
 font-size: 18px; padding-left: 25px; line-height: 1.4em; width: 800px; letter-spacing: 0.5px;
 color: ${props=> props.theme.colors.text2Color};
-@media screen and (max-width: 960px){ width: 100%; }
-@media screen and (max-width: 480px){ padding-left: 5px; }`
+@media screen and (max-width: 960px){ width: 100%; padding-left: 15px; }
+@media screen and (max-width: 480px){ font-size: 16px; padding-left: 0px; }`
 const BlankStyled = styled.p`
 height: 50px;
 @media screen and (max-width: 960px){ height: 30px; }`
@@ -39,7 +39,7 @@ const Skill = () => {
 
     return( //Main -> Container -> {children}
         <>
-
+            
             <MainSlide>
                 <SubTitle>Skill</SubTitle>
                 
