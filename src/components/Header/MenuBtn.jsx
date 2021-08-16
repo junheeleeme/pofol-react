@@ -9,8 +9,7 @@ const WhiteTheme = styled.a`
     background: url(${whiteMenu}) no-repeat center/100%;
 `
 const DarkTheme = styled.a`
-    display: inline-block;width: 100%; height: 100%; background: url(${blackMenu}) no-repeat center/100%; 
-`
+    display: inline-block;width: 100%; height: 100%; background: url(${blackMenu}) no-repeat center/100%; `
 
 const menuBtn = ({themeMode}) => {
 

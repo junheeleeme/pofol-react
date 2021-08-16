@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import MainFade from '../components/MainFade'
 import SubTitle from '../components/SubTitle'
 import Col from '../components/Col'
 import Row from '../components/Row'
 import H3Title from '../components/H3Title'
-import { connect } from 'react-redux'
-import DetailImgCover from '../components/portfolio/DetailImgCover'
 import NotFound from './NotFound'
+import { connect } from 'react-redux'
+import { setCurrent } from '../redux'
+import DetailImgCover from '../components/Portfolio/DetailImgCover'
 
 const WrapStyled = styled.div`
 width: 80%; 
@@ -33,45 +33,51 @@ font-size: 19px; line-height: 27px; color: ${props=> props.theme.colors.text2Col
 const SpanStyled = styled.span`
 display: inline-block; width: 8px;`
 
-const PofoleDetail = ({pofol}) => {
+const PortfolioDetail = ({pofol, currentPofol, setCurrent, match }) => {
     
-    const { id } = useParams(); 
-    const [idx, setIdx] = useState(Number(id-1));
-    const [isVisible, setIsVisible] = useState(pofol.length>=id);
-
+    const [isLoad, setIstLoad] = useState(false);
+    const { params } = match;
+    
     useEffect(()=>{
+        if( pofol.length >= Number(params.id)){
+            setCurrent(Number(params.id-1));
+            setIstLoad(true);
+        }else{
+            setIstLoad(false);
+        }        
         window.scrollTo({top: 0, behavior: 'auto'});
-    }, [])
-
+    }, []);
 
     return(
-        <>
+        <> 
             {
-                isVisible
+                isLoad
                     ?
                 <MainFade>
                     <SubTitle>Portfolio</SubTitle>
-                    <H3Title>{pofol[idx].title + ' (' + pofol[idx].type + ')'}</H3Title>
+
+                    <H3Title>{currentPofol.title + ' (' + currentPofol.type + ')'}</H3Title>
+
                     <Row columns={[100, 100]}>    
                         <Col>
                             <WrapStyled>  
                                 <DetailImgCover>
-                                    <ImgStyled src={`../images/${pofol[idx].title}_play.gif`} alt={pofol[idx].title + ' image'} />
+                                    <ImgStyled src={`../images/${currentPofol.title}_play.gif`} alt={currentPofol.title + ' image'} />
                                 </DetailImgCover>
-
-                                <PStyled>{pofol[idx].content}</PStyled>     
+        
+                                <PStyled>{currentPofol.content}</PStyled>     
                                 <H4Styled>Skills</H4Styled>
-
+        
                                 <UlStyled>
                                     {
-                                        pofol[idx].skills.map((v, idx) => 
+                                        currentPofol.skills.map((v, idx) => 
                                             <LiStyled key={v+idx}>{v}</LiStyled>
                                         )
                                     }
                                 </UlStyled>
                                 <div>
-                                    <LeftBtnStyled href={pofol[idx].link[0]} target="_blank">👨‍💻 Github</LeftBtnStyled>    
-                                    <RightBtnStyled href={pofol[idx].link[1]} target="_blank">🖥️<SpanStyled/>View</RightBtnStyled>
+                                    <LeftBtnStyled href={currentPofol.link[0]} target="_blank">👨‍💻 Github</LeftBtnStyled>    
+                                    <RightBtnStyled href={currentPofol.link[1]} target="_blank">🖥️<SpanStyled/>View</RightBtnStyled>
                                 </div>
                             </WrapStyled>
                         </Col>
@@ -79,13 +85,19 @@ const PofoleDetail = ({pofol}) => {
                 </MainFade>
                     :
                 <NotFound/>
+
             }
+        
         </>
     )
 }
 
+
 const mapStateToProps =({pofol}) => ({
-    pofol : pofol.pofol
+    pofol : pofol.pofol,
+    currentPofol : pofol.currentPofol
 });
 
-export default connect(mapStateToProps)(PofoleDetail);
+const mapDispatchToProps = ({ setCurrent });
+
+export default connect(mapStateToProps, mapDispatchToProps)(PortfolioDetail);

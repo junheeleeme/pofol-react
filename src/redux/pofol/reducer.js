@@ -1,8 +1,15 @@
 // types.js -> reducer.js -> rootReducer.js
-import { SET_PORTFOLIO } from "./types";
+import { SET_PORTFOLIO, SET_CURRENT } from "./types";
 
 const initialState = {
-    pofol : ''
+    pofol : '',
+    currentPofol : {
+        "title" : '',
+        "type" : '',
+        "content" : '',
+        "skills" : ['', '', '', ''],
+        "link" : ['', '']
+    }
 }
 
 const pofolReducer = (state = initialState, action) => {
@@ -13,6 +20,12 @@ const pofolReducer = (state = initialState, action) => {
             return {
                 ...state,
                 pofol : action.data
+            }
+        }
+        case SET_CURRENT : { 
+            return {
+                ...state,
+                currentPofol : state.pofol[action.data]
             }
         }
         default : return state

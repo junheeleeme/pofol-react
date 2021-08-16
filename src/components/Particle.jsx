@@ -9,8 +9,7 @@ const ParticlesStyled = styled(Particles)`
     height: 101%;
     z-index: -999;
     background-color: ${props => props.theme.colors.bgColor};
-    transition: background ${props=> props.theme.colors.trans};
-`
+    transition: background ${props=> props.theme.colors.trans};`
 
 const Particle = ({ theme }) => {
     

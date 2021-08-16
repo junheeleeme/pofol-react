@@ -6,12 +6,19 @@ const path = require("path");
 const pofol = require("../portfolio.json");
 
 
+router.use(express.json()); //json 형태로 parsing
+router.use(express.urlencoded( {extended : false } )); 
+
 router.get('/', (req, res) => { res.sendFile(path.join(__dirname, '../build/index.html')); });
 router.get('/about', (req, res) => { res.sendFile(path.join(__dirname, '../build/index.html')); });
 router.get('/skill', (req, res) => { res.sendFile(path.join(__dirname, '../build/index.html')); });
 router.get('/portfolio', (req, res) => { res.sendFile(path.join(__dirname, '../build/index.html')); });
-router.get('/portfolio/:id', (req, res) => { res.sendFile(path.join(__dirname, '../build/index.html')); });
+router.get('/portfolio/:id', (req, res) => { 
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+    console.log(req.params);
+});
 router.get('/contact', (req, res) => { res.sendFile(path.join(__dirname, '../build/index.html')); });
+
 
 router.get('/pofofllist', (req, res) => {
     res.json(pofol);

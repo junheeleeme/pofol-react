@@ -5,7 +5,7 @@ import SubTitle from '../components/SubTitle';
 
 
 const ShowAniEffect = styled.div`
-position: absolute; width: 100%; bottom: 0; left: 0px; padding: 0 10px 50px 50px; animation: 0.85s ease-in-out FadeUpEffect;
+position: absolute; width: 100%; bottom: 0; left: 0px; padding: 0 10px 50px 50px; animation: 0.67s ease-in-out FadeUpEffect;
 @media screen and (max-width: 768px){ padding: 0 15px 50px 50px; }
 @media screen and (max-width: 480px){ padding: 0 15px 50px 20px; }
 @keyframes FadeUpEffect{

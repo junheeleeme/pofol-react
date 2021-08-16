@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const WrapStyled = styled.div`
-position: absolute; top: 0; right: 0; width: 400px; height: 100%;
+position: absolute; top: 0; right: 0; width: 400px; height: 100%; z-index: 1;
 @media screen and (max-width: 960px){ height: 47%; }
 @media screen and (max-width: 480px){ height: 100%; right: auto; left: -55px; }`
 const HAlphabet = styled.div`
