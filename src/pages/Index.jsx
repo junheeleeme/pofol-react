@@ -10,9 +10,8 @@ const IntroStyled = styled.main`
     width: 100%;
     min-height: calc(100vh - 80px);
     @media screen and (max-width: 768px) {
-        min-height: auto; height: 100%;
-        display: inline-block; position: absolute; 
-        top: 50%; left: 50%; transform: translate(-50%, -50%);
+        position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);    
+        min-height: auto;
     }`
 
 const TyperWrap = styled.section`

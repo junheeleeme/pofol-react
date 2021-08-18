@@ -17,10 +17,15 @@ import { connect } from 'react-redux'
 import { setIsVisible, setCurrentMenu, setThemeMode, setPofol} from './redux/index'
 import axios from 'axios'
 
-
 const Juni = styled.div`
     position: relative; background-color: transparent;
-    min-height: 100vh;`
+    width: 100%; min-height: 100vh;
+    @media screen and (max-width: 768px) {
+      min-height: auto;
+      height: 100vh;
+      height: -webkit-fill-available;
+      height: fill-available;
+    }`
 
 const App = ({ theme, setThemeMode, isVisible, setIsVisible, setPofol }) => {
 
@@ -29,7 +34,7 @@ const App = ({ theme, setThemeMode, isVisible, setIsVisible, setPofol }) => {
   
 
   useEffect(() => {
-      
+
     getPofol();    
 
     /* 컬러 모드 */
