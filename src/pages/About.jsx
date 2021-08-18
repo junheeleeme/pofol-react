@@ -12,7 +12,7 @@ import Ani from '../components/About/Ani'
 const ImgStyled = styled.div`
     display: inline-block; width: 250px; height: 250px; border-radius: 50%; margin-left: 30px;
     @media screen and (max-width: 768px) { width: 220px; height: 220px; margin-left: 40px; }
-    @media screen and (max-width: 480px) { width: 220px; height: 220px; margin-left: 0px; float: right;  }
+    @media screen and (max-width: 480px) { width: 180px; height: 180px; margin-left: 0px; float: right;  }
     background: url(${ProfileImg}) no-repeat center/100%;`
 const H3Styled = styled.h3`
     font-size: 24px; margin: 25px 0 40px 0; font-weight: 600; letter-spacing: -1px;
@@ -48,7 +48,7 @@ const Intro = ({theme}) => {
                         <H3Styled>👋 안녕하세요. 풀스택 개발자를 지향하는 이준희입니다.</H3Styled>
                         <UlStyled>
                             <LiStyled>변화와 도전을 통해 부족함을 채우고 성장하며 유연한 사고를 위해 끝없이 배우려는 개발자입니다.</LiStyled>
-                            <LiStyled>현재는 프론트엔드에 집중하여 학습하고 있으며, 학습한 내용들을 블로그에 기록하는 습관을 가지고 있습니다.</LiStyled>
+                            <LiStyled>현재는 프론트엔드 분야를 학습하고 있으며, 학습한 내용을 블로그에 기록하는 습관을 가지고 있습니다.</LiStyled>
                             {/* <LiStyled>성장에 대한 열정과 배움에 대한 의지를 높게 </LiStyled> */}
 
                             {/* <LiStyled><strong>Birthday :</strong>&nbsp;1995.09.07</LiStyled>

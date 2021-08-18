@@ -4,7 +4,10 @@ import styled from 'styled-components'
 const WrapStyled = styled.div`
 position: absolute; top: 0; right: 0; width: 400px; height: 100%; z-index: 1;
 @media screen and (max-width: 960px){ height: 47%; }
-@media screen and (max-width: 480px){ height: 100%; right: auto; left: -55px; }`
+@media screen and (max-width: 480px){ 
+    height: 400px; right: auto; left: -120px;
+    transform: scale(0.5);
+}`
 const HAlphabet = styled.div`
 display: inline-block; position: absolute; width: 170px; height: 200px; border-left: 45px solid #0F52BA; border-right: 45px solid #0F52BA;
 &:after{ content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 45px; transform: translate(0, -50%);

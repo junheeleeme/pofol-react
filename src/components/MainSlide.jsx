@@ -10,7 +10,11 @@ const MainStyled = styled.main`
     max-width: 1080px; min-height: calc(100vh - 80px); padding: 0 30px;
     transition: opacity ${props=> props.theme.colors.trans}, transform ${props=> props.theme.colors.trans}, background-color ${props=> props.theme.colors.trans};
 @media screen and (max-width: 1079px) { width: calc(100% - 40px); }
-@media screen and (max-width: 768px) { width: 100%; min-height: 100vh; padding: 0 15px; }`
+@media screen and (max-width: 768px) { 
+    width: 100%; min-height: auto; padding: 0 15px; 
+    position: fixed; top: 0; left: 0; height: 100%;
+    overflow: auto;
+}`
 
 const MainSlide = ({isVisible, isMount, children}) => {
 

@@ -21,10 +21,9 @@ const Juni = styled.div`
     position: relative; background-color: transparent;
     width: 100%; min-height: 100vh;
     @media screen and (max-width: 768px) {
-      min-height: auto;
-      height: 100vh;
-      height: -webkit-fill-available;
-      height: fill-available;
+      min-height: 100vh;
+      min-height: -webkit-fill-available;
+      min-height: fill-available;
     }`
 
 const App = ({ theme, setThemeMode, isVisible, setIsVisible, setPofol }) => {
