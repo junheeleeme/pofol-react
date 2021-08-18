@@ -5,11 +5,11 @@ import SubTitle from '../components/SubTitle';
 
 
 const WrapStyled = styled.div`
-position: fixed; bottom: 0; left: 0; width: 100%; 
+position: absolute; bottom: 0; left: 0; width: 100%; 
 padding: 0 10px 50px 50px; opacity: 0;
 @media screen and (max-width: 768px){ padding: 0 15px 50px 50px; }
 @media screen and (max-width: 480px){ padding: 0 15px 50px 20px; }
-animation: 0.75s ease-in-out 0.3s FadeUpEffect forwards;;
+animation: 0.75s ease-in-out 0.15s FadeUpEffect forwards;;
 @keyframes FadeUpEffect{
     0%{opacity: 0; transform: translateY(50px); }
     100%{ opacity: 1; transform: tranlateY(0px); }
