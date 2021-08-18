@@ -14,7 +14,7 @@ bottom: 110vh; right: 180px; transform: rotate(-18deg);
 animation: HAlpabetEffect 0.9s 1s ease-in forwards;
 @media screen and (max-width: 960px) { animation: HAlpabetEffect 1.3s 1s ease-in forwards; } 
 @keyframes HAlpabetEffect{
-    0%{ bottom: 110vh; right: 180px; transform: rotate(-12deg); }
+    0%{ bottom: calc(100vh + 200px); right: 180px; transform: rotate(-12deg); }
     60%{ bottom: 23px; right: 180px; transform: rotate(-20deg); }
     70%{ bottom: 35px; right: 135px; transform: rotate(8deg);  }
     75%{ bottom: 13px; right: 170px; transform: rotate(-8deg); }
@@ -31,7 +31,7 @@ bottom: 110vh; right: -200px; transform: rotate(-10deg);
 animation: IAlpabetEffect 0.9s 1s ease-in forwards;
 @media screen and (max-width: 960px) { animation: IAlpabetEffect 1.3s 1s ease-in forwards; } 
 @keyframes IAlpabetEffect{
-    0%{ bottom: 110vh; right: 60px; }
+    0%{ bottom: calc(100vh + 200px); right: 60px; }
     60%{ bottom: 7px; right: 60px; transform: rotate(-10deg); }
     65%{ bottom: 35px; right: 29px; transform: rotate(5deg); }
     70%{ bottom: 5px; right: 53px; transform: rotate(-5deg); }

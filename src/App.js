@@ -30,20 +30,7 @@ const App = ({ theme, setThemeMode, isVisible, setIsVisible, setPofol }) => {
 
   useEffect(() => {
       
-      axios({
-        method: 'get',
-        url : './portfolio.json',
-        // url : 'http://localhost:8080/portfolio.json',
-        responseType : 'json'
-      })
-      .then((res)=>{
-        setPofol(res.data);
-        setIsLoad(true);
-      })
-      .catch((err) => {
-        console.log(err);
-        setIsLoad(false);
-      })
+    getPofol();    
 
     /* 컬러 모드 */
     const saveColorMode = localStorage.getItem("colorMode");
@@ -73,6 +60,26 @@ const App = ({ theme, setThemeMode, isVisible, setIsVisible, setPofol }) => {
     }
 
   }, []);
+
+  const getPofol = async () => {
+    
+    const pofol = await axios({
+        method: 'get',
+        url : './portfolio.json',
+        // url : 'http://localhost:8080/portfolio.json',
+        responseType : 'json'
+    });
+
+    if(pofol.status === 200){ // 데이터 수신 성공
+        const { data } = pofol; 
+          setPofol(data);
+          setIsLoad(true);
+    }
+    else{
+      setIsLoad(false);
+    }
+}
+
 
   if(!isLoad){
     return(

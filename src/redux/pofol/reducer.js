@@ -2,7 +2,7 @@
 import { SET_PORTFOLIO, SET_CURRENT } from "./types";
 
 const initialState = {
-    pofol : '',
+    pofol : null,
     currentPofol : {
         "title" : '',
         "type" : '',

@@ -40,29 +40,43 @@ const PortfolioDetail = ({ match, pofol, setPofol }) => {
     const [isLoad, setIsLoad] = useState(false);
     const { params } = match;
     const [current, setCurrent] = useState();
-    
 
     useEffect(() => {
-    
-        axios({
+        const idx = Number(params.id-1);
+        if(pofol !== null){
+            setCurrent(pofol[idx]);
+            setIsLoad(true);
+        }else{
+            getPofol(idx);
+        }
+        window.scrollTo({top: 0, behavior: 'auto'});
+    },[]);
+
+
+    const getPofol = async (idx) => {
+        
+        const pofol = await axios({
             method: 'get',
             url : '../portfolio.json',
             // url : 'http://localhost:8080/portfolio.json',
             responseType : 'json'
-        })
-        .then((res)=>{
-            setCurrent(res.data[Number(params.id-1)]);
-            setPofol(res.data);
-            setIsLoad(true);
-        })
-        .catch((err) => {
-            console.log(err);
-            setIsLoad(false);
         });
 
-        window.scrollTo({top: 0, behavior: 'auto'});
-        
-    }, []);
+        if(pofol.status === 200){ // 데이터 수신 성공
+            const { data } = pofol; 
+            if(data[idx] !== undefined){ //params.id에 맞는 포폴이 있는 경우
+                setPofol(data);
+                setCurrent(data[idx]);
+                setIsLoad(true);
+            }else{
+                setPofol(data);
+                setIsLoad(false);
+            }
+        }
+        else{
+            setIsLoad(false);
+        }
+    }
 
     return(
         <> 
