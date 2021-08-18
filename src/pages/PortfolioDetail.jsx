@@ -23,7 +23,7 @@ color: ${props=> props.theme.colors.textColor};`
 const UlStyled = styled.ul`
 list-style: circle; padding-left: 20px; margin: 20px 0 30px 0;`
 const LiStyled = styled.li`
-font-size: 17px; line-height: 1.75em; color: ${props=> props.theme.colors.textColor};`
+font-size: 17px; line-height: 1.55em; color: ${props=> props.theme.colors.textColor};`
 const LeftBtnStyled = styled.a`
 display: inline-block; float:left; width: 49%; height: 45px; line-height: 45px; text-align: center;
 background: ${props=> props.theme.colors.bgColor}; color: ${props=> props.theme.colors.textColor};`

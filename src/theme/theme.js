@@ -6,6 +6,8 @@ export const dark = {
         textColor : '#fff',
         text2Color : '#d9d9d9',
         text3Color : '#a3a3a3',
+        bgColorRGB : '0,0,0',
+        textColorRGB : '255, 255, 255',
         trans: '1s ease-in-out' 
     }
 }
@@ -18,6 +20,8 @@ export const light = {
         textColor : '#000',
         text2Color : '#212121',
         text3Color : '#636363',
+        bgColorRGB : '255, 255, 255',
+        textColorRGB : '0,0,0',
         trans: '1s ease-in-out'
     }
 }
