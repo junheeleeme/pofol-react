@@ -15,7 +15,6 @@ animation: 0.75s ease-in-out 0.15s FadeUpEffect forwards;;
     100%{ opacity: 1; transform: tranlateY(0px); }
 }
 `
-
 const PStyled = styled.p`
 font-size: 65px; font-weight: bold; margin-bottom: 30px;
 color: ${props=> props.theme.colors.text2Color};
