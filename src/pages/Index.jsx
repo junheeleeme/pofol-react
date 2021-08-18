@@ -9,15 +9,14 @@ const IntroStyled = styled.main`
     top: 0; left: 0;
     width: 100%;
     min-height: calc(100vh - 80px);
-    @supports (-webkit-touch-callout: none) { 
-        min-hieght: auto;
-        height: -webkit-fill-available;
-    }
-    @media screen and (max-width: 768px) { 
-        min-height: 100vh;
-    }
-`
-const TyperWrap = styled.div`
+    @media screen and (max-width: 768px) {
+        min-height: auto; height: 100%;
+        display: inline-block; position: absolute; 
+        top: 50%; left: 50%; transform: translate(-50%, -50%);
+    }`
+
+const TyperWrap = styled.section`
+    display: block;
     position: absolute;
     top: 43%; left: 50%;
     transform: translate(-50%, -50%);
@@ -32,7 +31,10 @@ const TyperWrap = styled.div`
             color: ${props => props.theme.colors.textColor};
             font-size: 70px;
         }
-    @media screen and (max-width: 768px) { top: 48%; letter-spacing: -1px; }
+    @media screen and (max-width: 768px) { 
+        display: inline-block; width: auto;
+        top: 48%; letter-spacing: -1px;
+    }
 `
 
 const Index = ({ isVisible, isMount, theme }) => {
@@ -51,7 +53,7 @@ const Index = ({ isVisible, isMount, theme }) => {
     return(
         <>
             <IntroStyled>
-                <section>
+
                 {
                     isVisible ? 
                     <TyperWrap className={isAni} theme={theme}>
@@ -69,7 +71,7 @@ const Index = ({ isVisible, isMount, theme }) => {
                     :
                     <></>
                 }
-                </section>
+
             </IntroStyled>
         </>
     )
