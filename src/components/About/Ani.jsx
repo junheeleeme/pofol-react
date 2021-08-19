@@ -3,7 +3,8 @@ import styled from 'styled-components'
 
 const WrapStyled = styled.div`
 position: absolute; top: 0; right: 0; width: 400px; height: 100%; z-index: 1;
-@media screen and (max-width: 960px){ height: 47%; }
+@media screen and (max-width: 960px){ height: 400px; right: 30px;  }
+@media screen and (max-width: 767px){ height: 450px; }
 @media screen and (max-width: 480px){ 
     height: 400px; right: auto; left: -120px;
     transform: scale(0.5);

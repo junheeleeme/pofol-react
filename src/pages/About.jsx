@@ -11,7 +11,7 @@ import Ani from '../components/About/Ani'
 
 const ImgStyled = styled.div`
     display: inline-block; width: 250px; height: 250px; border-radius: 50%; margin-left: 30px;
-    @media screen and (max-width: 768px) { width: 220px; height: 220px; margin-left: 40px; }
+    @media screen and (max-width: 768px) { width: 280px; height: 280px; margin-left: 40px; }
     @media screen and (max-width: 480px) { width: 180px; height: 180px; margin-left: 0px; float: right;  }
     background: url(${ProfileImg}) no-repeat center/100%;`
 const H3Styled = styled.h3`
