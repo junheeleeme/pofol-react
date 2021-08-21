@@ -16,10 +16,10 @@ const mongo_uri = process.env.MONGODB_URI;
 // const cors = require("cors");
 // web.use(cors());
 
+// TeleGram Bot
 cron.schedule('0 */2 * * *', ()=> { //매일 2시간 씩
     sendAlarm();
 });
-
 
 // express 정적 파일 제공
 web.use(express.static(path.join(__dirname, '/')));
