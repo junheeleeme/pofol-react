@@ -1,0 +1,329 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'NEXON Lv2 Gothic Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{ box-sizing: border-box; margin: 0 auto; padding: 0; font-family: 'NEXON Lv2 Gothic Bold', sans-serif; }
+html{ width: 100%; height: 100%; background: #000; }
+h2{ color: #fff; font-size: 33px; margin: 10px 0 35px; }
+h3{ color: #fff; font-size: 30px; margin: 10px 0; }
+ul{ list-style: none; padding: 0; }
+a{ text-decoration: none; }
+
+
+.start_wrap{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/tetris.jpeg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 9998;
+    transition: 0.5s ease;
+}
+
+.start_inner{
+    width: 100%;
+    height: 100%;
+    background: #000;
+    transition: .68s ease-in-out;
+    opacity: 1;
+}
+
+.start_btn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: #fff;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.start_btn:hover ~ .start_inner{
+    opacity: .4;
+}
+
+.stop_wrap{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 200px;
+    background-color: #f8f5f1;
+    text-align: center;
+    z-index: 9999;
+    box-shadow: 3px 3px 3px #aaaaaa;
+}
+
+.stop_msg{
+    margin: 30px 0;
+    font-size: 40px;
+    color: #000;
+}
+
+.stop_btn{
+    position: absolute;
+    top: 60%; left: 50%;
+    transform: translate(-50%, 0);
+    color: #000;
+    padding: 12px 40px;
+    border: 1px solid #000;
+    transition: 0.2s ease;
+}
+
+.stop_btn:hover{
+    background-color: #000;
+    color: #fff;
+}
+
+.gameover{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0, .73);
+    z-index: 9998;
+}
+
+.gameover_inner{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.gameover_inner>h2{
+    font-size: 60px;
+    color: #fff;
+    margin: 50px 0;
+}
+
+.retry_btn{
+    display: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 8px 30px;
+    margin: 10px;
+    font-size: 30px;
+    transition: 0.2s ease;
+}
+
+.gameover_inner>a:hover{
+    background: #fff;
+    color: #000;
+}
+
+/* ------------ Rank ------------ */
+
+.rank-submit{
+    display: none;
+    position: absolute;
+    top: -50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 250px;
+    padding: 20px 0;
+    background-color: #DBE6FD;
+    border-radius: 5px;
+    z-index: 9999;
+    transition: 1s ease;
+}
+
+.rank-submit>h3{
+    color: #232323;
+    text-align: center;
+    margin: 15px 0;
+}
+
+#nicname{
+    display: inline-block;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 33px;
+    padding: 3px 5px;
+    border-radius: 3px;
+    border: 1px solid #47597E;
+    text-align: center;
+    outline: 0;
+}
+#rankBtn{
+    position: absolute;
+    bottom: 20px; left: 50%;
+    transform: translate(-50%, 0);
+    display: block;
+    width: 90%;
+    height: 37px;
+    color: #fff;
+    background-color: #47597E;
+    cursor: pointer;
+}
+
+.rank{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 230px;
+    height: 300px;
+}
+
+.rk-table{
+    border-collapse: collapse;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+}
+
+.rk-table tr:first-child{
+    background-color: #B980F0;
+}
+.rk-table tr:nth-child(2){
+    background-color: #FB3640;
+
+}
+.rk-table tr:nth-child(3){
+    background-color: #7C83FD;
+}
+.rk-table tr:nth-child(4){
+    background-color: #50CB93;
+}
+
+.rk-table th, .rk-table td{
+    padding: 3px;
+}
+
+.rk-table tr>th:first-child{
+    width: 20%;
+}
+.rk-table tr>th:nth-child(2){
+    width: 60%;
+}
+.rk-table tr>th:nth-child(3){
+    width: 20%;
+}
+
+.tetris_wrap{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.tetris_board{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 50px;
+    border: 10px solid #fff;
+}
+
+.tetris_board>ul{
+    width: 300px;
+    height: 600px;
+    background: #5b5b5b;
+}
+
+.tetris_board>ul>li>ul>li{
+    width: 30px;
+    height: 30px;
+    float: left;
+    border-left: 1px solid #bbbbbb;
+    border-bottom: 1px solid #bbbbbb;
+
+}
+
+.support_board{
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 50px;
+    width: 210px;
+    text-align: center;
+}
+
+.support_board>div{
+    padding: 20px 0;
+    height: 206.5px;
+}
+
+.next_block{
+    display: inline-block;    
+}
+
+.next_block>li>ul>li.bar{
+    margin-top: 15px;
+    margin-bottom: -15px;
+}
+
+.next_block>li{
+    width: 120px;
+}
+
+.next_block>li>ul>li{
+    width: 30px;
+    height: 30px;
+    float: left;
+}
+
+
+.bar{
+    background: #f6395a;
+    border-top: 4px solid rgba(240,240,240, 0.5) !important;
+    border-right: 4px solid rgba(0,0,0, 0.3) !important;
+    border-bottom: 4px solid rgba(0,0,0, 0.9) !important;
+    border-left: 4px solid rgba(0,0,0, 0.1) !important;
+}
+
+.tree{
+    background: #c0e218;
+    border-top: 4px solid rgba(240,240,240, 0.5) !important;
+    border-right: 4px solid rgba(0,0,0, 0.3) !important;
+    border-bottom: 4px solid rgba(0,0,0, 0.9) !important;
+    border-left: 4px solid rgba(0,0,0, 0.1) !important;
+}
+
+.zee{
+    background: #33D8F5;
+    border-top: 4px solid rgba(240,240,240, 0.5) !important;
+    border-right: 4px solid rgba(0,0,0, 0.3) !important;
+    border-bottom: 4px solid rgba(0,0,0, 0.9) !important;
+    border-left: 4px solid rgba(0,0,0, 0.1) !important;
+}
+
+.elLeft{
+    background: #e449b8;
+    border-top: 4px solid rgba(240,240,240, 0.5) !important;
+    border-right: 4px solid rgba(0,0,0, 0.3) !important;
+    border-bottom: 4px solid rgba(0,0,0, 0.9) !important;
+    border-left: 4px solid rgba(0,0,0, 0.1) !important;
+}
+
+.elRight{
+    background: #fedf46;
+    border-top: 4px solid rgba(240,240,240, 0.5) !important;
+    border-right: 4px solid rgba(0,0,0, 0.3) !important;
+    border-bottom: 4px solid rgba(0,0,0, 0.9) !important;
+    border-left: 4px solid rgba(0,0,0, 0.1) !important;
+}
+
+.squre{
+    background: #3e7aed;
+    border-top: 4px solid rgba(240,240,240, 0.5) !important;
+    border-right: 4px solid rgba(0,0,0, 0.3) !important;
+    border-bottom: 4px solid rgba(0,0,0, 0.9) !important;
+    border-left: 4px solid rgba(0,0,0, 0.1) !important;
+}

@@ -17,7 +17,7 @@ const mongo_uri = process.env.MONGODB_URI;
 // web.use(cors());
 
 // TeleGram Bot
-cron.schedule('0 */2 * * *', ()=> { //매일 2시간 씩
+cron.schedule('0 */1 * * *', ()=> { //매일 1시간 씩
     sendAlarm();
 });
 

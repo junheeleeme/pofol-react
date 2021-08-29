@@ -61,12 +61,12 @@ const Contact = () => {
                                     </AStyled>
                                 </LiStyled>
                                 <LiStyled>
-                                    <AStyled href="https://github.com/junheeleeme" target="_blank" title="새창으로 주소이동">
+                                    <AStyled href="https://juni-official.tistory.com" target="_blank" title="새창으로 주소이동">
                                         <strong>BLOG</strong> : https://juni-official.tistory.com
                                     </AStyled>
                                 </LiStyled>
                                 <LiStyled>
-                                    <AStyled href="https://juni-official.tistory.com" target="_blank" title="새창으로 주소이동">
+                                    <AStyled href="https://github.com/junheeleeme" target="_blank" title="새창으로 주소이동">
                                         <strong>GITHUB</strong> : https://github.com/junheeleeme
                                     </AStyled>
                                 </LiStyled>
