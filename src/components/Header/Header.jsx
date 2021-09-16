@@ -7,6 +7,7 @@ import ThemeToggle from '../Header/ThemeToggle'
 import CloseBtn from './CloseBtn'
 import MenuBtn from './MenuBtn'
 import Site from './Site'
+import Logo from '../../images/logo.png';
 
 const HeaderStyled = styled.header`
     height: 80px; display: block; z-index: 9999;
@@ -114,8 +115,8 @@ const Header = ({ route, currentMenu, setIsMount, setCurrentMenu, theme, themeMo
         <>
             <HeaderBtnStyled onClick={onClickMenuBtn}>  {/* 모바일 탑메뉴 버튼 */}
                 <MenuBtn/>
-            </HeaderBtnStyled>
-
+                </HeaderBtnStyled>
+                <img src={Logo} alt="logo"  style={{display : 'none'}} />
             <HeaderStyled className={isTopMenu}>
 
                 <NavStyled className="navMount">
