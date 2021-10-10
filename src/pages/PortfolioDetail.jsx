@@ -21,14 +21,27 @@ const H4Styled = styled.h4`
 font-size: 22px; margin: 40px 0 15px 0;
 color: ${props=> props.theme.colors.textColor};`
 const UlStyled = styled.ul`
-list-style: circle; padding-left: 20px; margin: 20px 0 30px 0;`
+    list-style: circle; padding-left: 0; margin: 50px 0px 30px;
+    @media screen and (max-width: 768px){
+        margin: 30px 0 15px;
+    }
+`
 const LiStyled = styled.li`
-font-size: 17px; line-height: 1.55em; color: ${props=> props.theme.colors.textColor};`
+    display: inline-block; font-size: 14px; line-height: 1.5em; 
+    /* color: ${props=> props.theme.colors.textColor}; */
+    border: 1px solid #ff8000; color: #ff8000;
+    margin: 5px 10px 5px 0; padding: 3px 7px;
+`
+const BtnWrapStyled = styled.div`
+    position: relative; height: 45px;
+`
 const LeftBtnStyled = styled.a`
-display: inline-block; float:left; width: 49%; height: 45px; line-height: 45px; text-align: center;
+display: inline-block; position: absolute; top: 0; left: 0;
+width: 49%; height: 100%; line-height: 45px; text-align: center;
 background: ${props=> props.theme.colors.bgColor}; color: ${props=> props.theme.colors.textColor};`
 const RightBtnStyled = styled.a`
-display: inline-block; float: right; width: 49%; height: 45px; line-height: 45px; text-align: center;
+display: inline-block; position: absolute; top: 0; right: 0; 
+width: 49%; height: 100%; line-height: 45px; text-align: center;
 background: ${props=> props.theme.colors.bgColor}; color: ${props=> props.theme.colors.textColor};`
 const PStyled = styled.p`
 font-size: 19px; line-height: 27px; color: ${props=> props.theme.colors.text2Color};`
@@ -96,8 +109,7 @@ const PortfolioDetail = ({ match, pofol, setPofol }) => {
                                 </DetailImgCover>
         
                                 <PStyled>{current.content}</PStyled>     
-                                <H4Styled>Skills</H4Styled>
-        
+                                
                                 <UlStyled>
                                     {
                                         current.skills.map((v, idx) => 
@@ -105,10 +117,10 @@ const PortfolioDetail = ({ match, pofol, setPofol }) => {
                                         )
                                     }
                                 </UlStyled>
-                                <div>
+                                <BtnWrapStyled>
                                     <LeftBtnStyled href={current.link[0]} target="_blank">👨‍💻 Github</LeftBtnStyled>    
                                     <RightBtnStyled href={current.link[1]} target="_blank">🖥️<SpanStyled/>View</RightBtnStyled>
-                                </div>
+                                </BtnWrapStyled>
                             </WrapStyled>
                         </Col>
                     </Row>
