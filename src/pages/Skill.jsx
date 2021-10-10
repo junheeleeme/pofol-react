@@ -45,11 +45,11 @@ const Skill = () => {
                 
                 <Row columns={['100', '100']}>
                     <Col>
-                        <H3Styled>주사용 기술</H3Styled>
-                        <PStyled>React(Functional Component), JavaScript, JQuery, HTML/CSS, Axios/Fetch API, Express</PStyled>
+                        <H3Styled>💁🏻‍♂️ 주사용 기술</H3Styled>
+                        <PStyled>React(Functional Component), Styled Component, JavaScript, JQuery, HTML/CSS, Axios/Fetch API, Node.js Express</PStyled>
                         <BlankStyled/>
-                        <H3Styled>사용해본적 있는 기술</H3Styled>
-                        <PStyled>AWS, Next.js, Redux, Styled Component</PStyled>
+                        <H3Styled>🙋🏻‍♂️ 사용해본적 있는 기술</H3Styled>
+                        <PStyled>AWS ec2, Next.js, Vercel Deploy, Redux</PStyled>
                     </Col>
                 </Row>
                 <Row columns={['100', '100']}>

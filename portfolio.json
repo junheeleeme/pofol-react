@@ -1,22 +1,29 @@
 [
     {
+        "title" : "TinyIMG",
+        "type" : "Responsive",
+        "content" : "TinyIMG는 브라우저 API 및 CANVAS를 사용한 서버리스(serverless) 이미지 압축과 리사이징, webp포멧 변환을 제공합니다. 서버로 이미지를 전송하지 않고 브라우저 성능을 기반한 이미지 변환으로 빠른 속도와 프라이버시에 안전한 장점을 가지고 있습니다.",
+        "skills" : ["React(CRA)", "Styled-Components", "HTML", "Canvas", "Firebase"],
+        "link" : ["https://github.com/junheeleeme/tinyimage", "https://tiny-img.web.app/"]
+    },
+    {
         "title" : "Simple-React-Board",
         "type" : "Responsive",
         "content" : "리액트, Node.JS, 몽고디비를 연동하여 구현한 텍스트 CRUD 게시판입니다. React-Router-Dom을 사용한 SPA(Single Page Application) 형태의 반응형 웹사이트입니다.",
-        "skills" : ["React.js(Webpack/Babel)", "CSS(Material-UI)", "Node.js(express)", "MongoDB", "Axios"],
+        "skills" : ["React(Webpack/Babel)", "CSS(Material-UI)", "Express", "MongoDB", "Axios"],
         "link" : ["https://github.com/junheeleeme/Simple-React-Board", "https://www.juni-official.com/simple-react-board"]
     },
     {
         "title" : "Todo List(Functional Components)",
         "type" : "Responsive",
-        "content" : "CRA(Create React App) 대신 Webpack과 Babel을 이용한 리액트 개발환경에서 함수형 컴포넌트를 사용해 개발한 TodoList 반응형 웹사이트입니다. 작성된 Todo 데이터는 LocalStorage에 저장되어 브라우저가 종료되어도 지워지지 않도록 구현했습니다.",
-        "skills" : ["HTML", "CSS", "React.js(Webpack/Babel)"],
+        "content" : "CRA(Create React App) 대신 Webpack과 Babel을 이용한 리액트 개발환경에서 함수형 컴포넌트를 사용해 개발한 TodoList 반응형 웹사이트입니다. 작성된 Todo 데이터는 LocalStorage에 저장되어 브라우저가 종료되어도 지워지지 않도록 구현됐습니다.",
+        "skills" : ["HTML", "CSS", "React(Webpack/Babel)"],
         "link" : ["https://github.com/junheeleeme/react_TodoApp_hooks", "https://www.juni-official.com/todo-hooks"]
     },
     {
         "title" : "Tetris",
         "type" : "DeskTop",
-        "content" : "Vanila JavaScript를 사용해 DOM 제어를 학습하며 제작한 테트리스 데스크톱 웹사이트입니다. 간단한 게임 기능 뿐만 아니라 Express를 연동하여 랭킹 시스템까지 구현하였습니다.",
+        "content" : "Vanila JavaScript를 사용해 DOM 제어를 학습하며 제작한 테트리스 데스크톱 웹사이트입니다. 테트리스 게임과 플레이 점수를 비교한 랭킹 시스템까지 제공합니다.",
         "skills" : ["HTML", "CSS", "Vanilla JavaScript", "Express"],
         "link" : ["https://github.com/junheeleeme/tetris-js", "https://www.juni-official.com/tetris"]
     },

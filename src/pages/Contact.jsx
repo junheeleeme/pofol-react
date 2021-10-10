@@ -48,26 +48,26 @@ const Contact = () => {
                             
                             <UlStyled>
                                 <LiStyled>
-                                        <strong>NAME</strong> : LEE JUNHEE
+                                        <strong>🧑🏻</strong> : LEE JUNHEE
                                 </LiStyled>
                                 <LiStyled>
                                 <AStyled href="mailto:macjjuni@naver.com" title="이메일 보내기">
-                                        <strong>E-MAIL</strong> : macjjuni@gmail.com
+                                        <strong>✉️</strong> : macjjuni@gmail.com
                                     </AStyled>
                                 </LiStyled>
                                 <LiStyled>
                                     <AStyled href="#" onclick="return false;">
-                                        <strong>PHONE</strong> : (+82) 010-5183-1652
+                                        <strong>📱</strong> : (+82) 010-5183-1652
                                     </AStyled>
                                 </LiStyled>
                                 <LiStyled>
                                     <AStyled href="https://juni-official.tistory.com" target="_blank" title="새창으로 주소이동">
-                                        <strong>BLOG</strong> : https://juni-official.tistory.com
+                                        <strong>📝</strong> : https://juni-official.tistory.com
                                     </AStyled>
                                 </LiStyled>
                                 <LiStyled>
                                     <AStyled href="https://github.com/junheeleeme" target="_blank" title="새창으로 주소이동">
-                                        <strong>GITHUB</strong> : https://github.com/junheeleeme
+                                        <strong>💻</strong> : https://github.com/junheeleeme
                                     </AStyled>
                                 </LiStyled>
                             </UlStyled>
