@@ -8,7 +8,6 @@ import Col from '../components/Col'
 import Row from '../components/Row'
 import Cards from '../components/Portfolio/Cards'
 import ListImgCover from '../components/Portfolio/ListImgCover'
-import axios from 'axios'
 
 const LinkStyled = styled(Link)`
 position: relative; display: inline-block; width: 100%; height: 100%; overflow: hidden;

@@ -6,7 +6,7 @@ const router = require("./routes/router");
 const web = express();
 const port = process.env.PORT || 8080;
 
-//Telegram alarm
+// Telegram alarm
 // const sendAlarm = require("./routes/cryptoAlarm.js");
 // const cron = require('node-cron');
 
@@ -43,17 +43,18 @@ web.get('/simple-react-board/post', router);
 
 
 // Simple-React-Board : CRUD요청
-// web.post('/post', srb); //게시글 id 조회
-// web.get('/post/list', srb); //게시글 목록 요청
-// web.post('/post/write/new', srb); //게시글 작성
-// web.post('/post/usercheck?:id', srb); //본인 게시글 인증
-// web.delete('/post/delete?:id', srb); //게시글 삭제
-// web.post('/post/update?:id', srb); //게시글 업데이트
 
-// tetris : 랭킹기능
-// web.get('/rank?', tet); // 랭킹 순위권 체크
-// web.get('/readrank', tet); // 전체 랭킹 불러오기
-// web.post('/rank', tet); // 랭킹 저장
+// web.post('/post', srb); 
+// web.get('/post/list', srb); 
+// web.post('/post/write/new', srb); 
+// web.post('/post/usercheck?:id', srb);
+// web.delete('/post/delete?:id', srb);
+// web.post('/post/update?:id', srb); 
+
+// tetris 랭킹 순위권 체크
+// web.get('/rank?', tet); 
+// web.get('/readrank', tet); 
+// web.post('/rank', tet); 
 
 web.listen(port, (err) => {
     if(err){

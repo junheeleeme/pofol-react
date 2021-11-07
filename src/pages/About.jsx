@@ -49,7 +49,7 @@ const Intro = ({theme}) => {
                         <UlStyled>
                             <LiStyled>변화와 도전을 통해 부족함을 채우고 성장하며 유연한 사고를 위해 끊임없이 배우려는 개발자입니다.</LiStyled>
                             <LiStyled>웹을 구현하고 스스로 사용해보며 더 나은 사용자 편의성을 추구하고 있습니다.</LiStyled>
-                            <LiStyled>현재 웹 프론트엔드 분야를 공부하고 있으며, 더 나아가 백엔드 지식을 습득하길 원합니다. 제가 공부한 내용을 블로그에 기록하는 습관을 지니고 있습니다.</LiStyled>
+                            <LiStyled>현재 웹 프론트엔드 분야를 공부하고 있으며, 더 나아가 백엔드 지식을 습득하길 원합니다. 제가 공부한 내용을 블로그에 기록하는 습관을 가지고 있습니다.</LiStyled>
                             {/* <LiStyled>성장에 대한 열정과 배움에 대한 의지를 높게 </LiStyled> */}
 
                             {/* <LiStyled><strong>Birthday :</strong>&nbsp;1995.09.07</LiStyled>
